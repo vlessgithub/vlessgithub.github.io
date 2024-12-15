@@ -3,9 +3,10 @@
 <!-- BEGIN HEAD -->
 
 <head>
-        <link rel="canonical" href="https://vlessgithub.github.io/free-nodes/page-11.htm" />
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-25944.htm" />
     <meta charset="utf-8" />
-    <title>免费节点 - Vless Github机场订阅官网 - 第10页</title>
+    <title>Springboot  文件上传(base64方式)</title>
+        <meta name="description" content="使用场景： 对于互联网项目，基本都会采用分布式的文件存储方式，比如fastdfs,&nbsp; 保证高用户量的时候 文件操作效率(上传，读取)。 但是对于小型产品来说，一般用户使用量不大，并且对文件的" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -33,7 +34,7 @@
 <!-- END HEAD -->
 <!-- BODY -->
 
-<body id="body" data-spy="scroll" data-target=".header" data-page="category">
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
         <!--========== HEADER ==========-->
     <header class="header navbar-fixed-top">
         <!-- Navbar -->
@@ -78,9 +79,10 @@
             <div class="row">
                 <div class="col-sm-6 sm-margin-b-60">
                     <div class="margin-b-30">
-                        <h1 class="promo-block-title">免费节点</h1>
+                        <h1 class="promo-block-title">Springboot  文件上传(base64方式)</h1>
                         <p class="promo-block-text">
-                            <a href="/">首页</a> / 免费节点                        </p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -99,67 +101,12 @@
         <div class="container content-lg">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-09-05">
-                            <div class="col-md-3">
-                                <a href="/free-nodes/2024-9-5-latest-vless-node.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240903/69d934da1346a3507e2c020ecc3d9f35.webp" alt="「9月5日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接" class="full-width img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="section-seperator margin-b-50">
-                                    <div class="margin-b-50">
-                                        <div class="margin-b-30">
-                                            <a href="/free-nodes/2024-9-5-latest-vless-node.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月5日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了美国、韩国、新加坡、加拿大、日本、欧洲、香港等地区,最高速度可达20.2 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
+                                      				  				  				<div id="content_views" class="htmledit_views"> <h2>使用场景：</h2> <p>对于互联网项目，基本都会采用分布式的文件存储方式，比如fastdfs,&nbsp; 保证高用户量的时候</p> <p>文件操作效率(上传，读取)。</p> <p><strong>但是对于小型产品来说，一般用户使用量不大，并且对文件的操作量也不大，甚至很小。</strong></p> <p><strong>如果去给客户部署一套吹牛逼的分布式存储方案，无疑增大了维护成本，得不偿失。</strong></p> <p>针对上述场景，可以考虑使用base64的方式存储。代码如下：</p> <pre class="has"><code>import io.swagger.annotations.Api; import io.swagger.annotations.ApiOperation; import io.swagger.annotations.ApiResponses; import org.springframework.web.bind.annotation.PostMapping; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RequestParam; import org.springframework.web.bind.annotation.RestController; import org.springframework.web.multipart.MultipartFile;  import java.io.File; import java.io.FileInputStream; import java.util.HashMap; import java.util.Map;  @RestController @RequestMapping({"/upload"}) @Api(tags="文件上传") public class UploadController {      @PostMapping({"doUpload"})     @ApiOperation("文件上传(不需要token令牌)")     @ApiResponses({@io.swagger.annotations.ApiResponse(code=200, message="请求成功,返回结果result:{filename 文件名},{base64 base64编码}"), @io.swagger.annotations.ApiResponse(code=400, message="请求失败")})     public Map&lt;String, Object&gt; doUpload(@RequestParam("file") MultipartFile file) throws Exception {         if (file == null) {             return new HashMap(0);         }          Map map = new HashMap(2);          // 原文件名称         String filename = file.getOriginalFilename();          // 创建临时文件         File tempFile = File.createTempFile("tem", null);         file.transferTo(tempFile);         tempFile.deleteOnExit();          // 文件输入流         FileInputStream inputStream = new FileInputStream(tempFile);          byte[] buffer = new byte[(int)tempFile.length()];         inputStream.read(buffer);         inputStream.close();          // 转换为base64编码格式         String base64 = new sun.misc.BASE64Encoder().encode(buffer);          // 上面方法中获得的base64编码中，包含有换行符，统一全部替换掉         base64 = base64.replaceAll("[\\s*\t\n\r]", "");          // 返回值         map.put("filename", filename);         map.put("base64", base64);          return map;     } }</code></pre> <p>关于上述做几点说明：</p> <p><strong>1. 上述文件上传的时候，文件越大，产生的base64值也越大</strong></p> <p>故需要针对系统来评估数据库中对应字段的设计，存储长达，比如是&nbsp; text还是longtext(做个关联表，一般不会频繁操作，优化下查询效率)</p> <p><strong>2. 返回值</strong></p> <p>返回 原文件名称和base64编码</p> <p><strong>3.&nbsp; 页面传值保存</strong></p> <p>尽量采用body的形式传值，因为如果是以拼接的方式，由于值太长太大，会卡死浏览器</p> <p><strong>4.&nbsp; 关于图片 base64方式的显示</strong></p> <pre class="has"><code>// 把下面逗号后面的 base64编码 的文字替换成真正的base64码即可 // 然后放入到html文件中即可显示 &lt;img src="https://img-blog.csdnimg.cn/2022010621212522899.png" alt="Springboot  文件上传(base64方式)"&gt;</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25480.htm">成都市宠物领养中心电话（成都市宠物领养中心电话号码）</a></p>
+                                        <p>下一个：<a href="/news/article-25945.htm">附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）</a></p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                                                <div class="row item xcblog-blog-item" data-date="2024-09-04">
-                            <div class="col-md-3">
-                                <a href="/free-nodes/2024-9-4-free-vless-node.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240903/4e8311bee3289e0fd9c2b8c742e161d0.webp" alt="「9月4日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接" class="full-width img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="section-seperator margin-b-50">
-                                    <div class="margin-b-50">
-                                        <div class="margin-b-30">
-                                            <a href="/free-nodes/2024-9-4-free-vless-node.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月4日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了欧洲、日本、香港、韩国、新加坡、加拿大、美国等地区,最高速度可达20.2 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                                <div class="row item xcblog-blog-item" data-date="2024-09-03">
-                            <div class="col-md-3">
-                                <a href="/free-nodes/2024-9-3-node-share.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240903/98d7a176796dfbae180d18d83464e71f.webp" alt="「9月3日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接" class="full-width img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="section-seperator margin-b-50">
-                                    <div class="margin-b-50">
-                                        <div class="margin-b-30">
-                                            <a href="/free-nodes/2024-9-3-node-share.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月3日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了日本、美国、新加坡、加拿大、香港、欧洲、韩国等地区,最高速度可达19.9 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/free-nodes/page-10.htm">&laquo;</a></li> <li><a href="/free-nodes/">1</a></li><li><a href="/free-nodes/page-2.htm">2</a></li><li><a href="/free-nodes/page-3.htm">3</a></li><li><a href="/free-nodes/page-4.htm">4</a></li><li><a href="/free-nodes/page-5.htm">5</a></li><li><a href="/free-nodes/page-6.htm">6</a></li><li><a href="/free-nodes/page-7.htm">7</a></li><li><a href="/free-nodes/page-8.htm">8</a></li><li><a href="/free-nodes/page-9.htm">9</a></li><li><a href="/free-nodes/page-10.htm">10</a></li><li class="active"><span>11</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
-                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -167,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-19956.htm" title="动物疫苗的种类及特点有哪些图片（动物疫苗种类及类型）">动物疫苗的种类及特点有哪些图片（动物疫苗种类及类型）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe.htm" title="「10月20日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月20日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-vless-windows.htm" title="「9月21日」最高速度18.4M/S，2024年Vless每天更新免费机场订阅节点链接">「9月21日」最高速度18.4M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-vless-github.htm" title="「10月13日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接">「10月13日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-29-vless-github.htm" title="「9月29日」最高速度18.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月29日」最高速度18.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-21333.htm" title="我所在的城市里有一家宠物医院用英语怎么说 我所在的城市里有一家宠物医院用英语怎么说">我所在的城市里有一家宠物医院用英语怎么说 我所在的城市里有一家宠物医院用英语怎么说</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-node-subscribe-links.htm" title="「11月25日」最高速度21.3M/S，2024年Vless每天更新免费机场订阅节点链接">「11月25日」最高速度21.3M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-high-speed-nodes.htm" title="「11月28日」最高速度20M/S，2024年Vless每天更新免费机场订阅节点链接">「11月28日」最高速度20M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-19043.htm" title="猫三联每针多久打一次疫苗好（猫三联每针需要间隔多久）">猫三联每针多久打一次疫苗好（猫三联每针需要间隔多久）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-vless-windows.htm" title="「9月19日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接">「9月19日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-vless-windows.htm" title="「10月14日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接">「10月14日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-17-free-high-speed-nodes.htm" title="「9月17日」最高速度21.5M/S，2024年Vless每天更新免费机场订阅节点链接">「9月17日」最高速度21.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-latest-vless-node.htm" title="「12月11日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月11日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-vless-windows.htm" title="「11月14日」最高速度22M/S，2024年Vless每天更新免费机场订阅节点链接">「11月14日」最高速度22M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22705.htm" title="vue中excel导入功能">vue中excel导入功能</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-node-subscribe.htm" title="「10月8日」最高速度21.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月8日」最高速度21.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-vless-github.htm" title="「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-vless-node.htm" title="「12月8日」最高速度20M/S，2024年Vless每天更新免费机场订阅节点链接">「12月8日」最高速度20M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-free-node-subscribe.htm" title="「9月10日」最高速度18.7M/S，2024年Vless每天更新免费机场订阅节点链接">「9月10日」最高速度18.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19042.htm" title="MM32F0140 UART1硬件自动波特率校准功能的使用">MM32F0140 UART1硬件自动波特率校准功能的使用</a></li>
                     </ul>
     </div>
 </div>
