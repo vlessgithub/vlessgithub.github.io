@@ -3,10 +3,10 @@
 <!-- BEGIN HEAD -->
 
 <head>
-        <link rel="canonical" href="https://vlessgithub.github.io/news/article-26874.htm" />
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-27804.htm" />
     <meta charset="utf-8" />
-    <title>ASP.NET登出系统并清除Cookie_实用技巧_</title>
-        <meta name="description" content="1.前端页面代码： 前端页面代码主要显示退出系统或者网站的可视化按钮代码,代码如下：（请忽略项目关键字：CPU）  &lt;ul class="nav navbar-nav navbar-right"" />
+    <title>我们如何从MySQL表中获取特定行作为输出？</title>
+        <meta name="description" content="为了获取特定的行作为输出，我们需要在SELECT语句中使用WHERE子句。这是因为MySQL根据WHERE子句后给定的条件参数返回行。 示例 假设我们要从学生表中获取包含名称“ Aarav”的行，那么" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-sm-6 sm-margin-b-60">
                     <div class="margin-b-30">
-                        <h1 class="promo-block-title">ASP.NET登出系统并清除Cookie_实用技巧_</h1>
+                        <h1 class="promo-block-title">我们如何从MySQL表中获取特定行作为输出？</h1>
                         <p class="promo-block-text">
                             <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
                         </p>
@@ -102,10 +102,10 @@
             <div class="row">
                 <div class="col-md-9">
                                     <input type="hidden" id="share-website-info" data-name="" data-url="">
-                  				  				  				<h3>1.前端页面代码：</h3> <p>前端页面代码主要显示退出系统或者网站的可视化按钮代码,代码如下：（请忽略项目关键字：CPU）</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;ul class="nav navbar-nav navbar-right"&gt;                                                      &lt;li class=""&gt;                                  &lt;a href="javascript:;"   class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;                                      &lt;img src="@Url.Content("~/assets/img/user2.png" alt="ASP.NET登出系统并清除Cookie_实用技巧_")" alt=""&gt;@CPU.UserProfile.User.UserID                                      &lt;span class="fa fa-angle-down"&gt;&lt;/span&gt;                                  &lt;/a&gt;                                  &lt;ul class="dropdown-menu dropdown-usermenu pull-right" style="width:35px"&gt;                                      &lt;li&gt;                                          @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "padding: 12px 0px;" }))                                          {                                              @Html.AntiForgeryToken()                                              &lt;a href="javascript:document.getElementById('logoutForm').submit()"  &gt;&lt;i class="fa fa-sign-out pull-right"&gt;&lt;/i&gt; Log Out&lt;/a&gt;                                          }                                      &lt;/li&gt;                                  &lt;/ul&gt;                              &lt;/li&gt;                              &lt;li class="hidden-xs"&gt;&lt;a&gt;&lt;span&gt;在线人数: @System.Web.HttpContext.Current.Application["OnLineUserCount"] 人&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;                                                      &lt;/ul&gt;</pre> </div> <h3>2.后台逻辑处理代码：</h3> <p>后台的代码，主要是对前台点击按钮的事件进行处理：退出系统和清除系统Cookie</p> <div class="ay1code"> <pre class="brush:csharp;">[HttpPost]          [AllowAnonymous]          [ValidateAntiForgeryToken]          public ActionResult LogOff()          {              FormsAuthentication.SignOut();//退出登录              System.Web.HttpContext.Current.Session.Abandon();//清理缓存              return RedirectToAction("Login", "Account");          }</pre> </div> <h3>3.界面效果：</h3> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220415/d92571f9bbc043151f2df57b87b86760.jpg"></p> 			                <div class="clearfix"></div>
+                  				  				  				<p>为了获取特定的行作为输出，我们需要在SELECT语句中使用WHERE子句。这是因为MySQL根据WHERE子句后给定的条件参数返回行。</p> <h2>示例</h2> <p>假设我们要从学生表中获取包含名称“ Aarav”的行，那么可以在以下查询的帮助下完成该操作：</p> <pre>mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;Student&nbsp;WHERE&nbsp;Name&nbsp;=&nbsp;'Aarav'; +------+-------+---------+---------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;| +------+-------+---------+---------+ |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;| +------+-------+---------+---------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-26412.htm">axios安装，配置及配合vue脚手架</a></p>
-                                        <p>下一个：<a href="/news/article-26875.htm">快递寄宠物怎么寄猫咪（如何快递宠物猫）</a></p>
+                                        <p>上一个：<a href="/news/article-27341.htm">动物医院资质要求有哪些内容（动物医院诊疗范围）</a></p>
+                                        <p>下一个：<a href="/news/article-27805.htm">妙三多疫苗间隔多久打一针最好（妙三多疫苗间隔多久打一针最好呢）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -115,16 +115,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-vless-node.htm" title="「9月27日」最高速度19.3M/S，2024年Vless每天更新免费机场订阅节点链接">「9月27日」最高速度19.3M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-18-free-vless-node.htm" title="「9月18日」最高速度21M/S，2024年Vless每天更新免费机场订阅节点链接">「9月18日」最高速度21M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-today-vless-node.htm" title="「12月4日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接">「12月4日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-vless-windows.htm" title="「11月1日」最高速度20.1M/S，2024年Vless每天更新免费机场订阅节点链接">「11月1日」最高速度20.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe.htm" title="「10月20日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月20日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-vless-node-github.htm" title="「10月6日」最高速度19.4M/S，2024年Vless每天更新免费机场订阅节点链接">「10月6日」最高速度19.4M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-19500.htm" title="动物疫苗管理法律法规最新版本是什么（动物疫苗管理制度）">动物疫苗管理法律法规最新版本是什么（动物疫苗管理制度）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-vless-node-github.htm" title="「11月6日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「11月6日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-18624.htm" title="养猫的人容易得什么病视频讲解（养猫咪的人会得什么病）">养猫的人容易得什么病视频讲解（养猫咪的人会得什么病）</a></li>
-                        <li class="py-2"><a href="/news/article-23164.htm" title="vue 图片资源应该如何存放并引入（public、assets）？">vue 图片资源应该如何存放并引入（public、assets）？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-vless-github.htm" title="「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-today-vless-node.htm" title="「10月27日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接">「10月27日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-free-node-subscribe.htm" title="「9月10日」最高速度18.7M/S，2024年Vless每天更新免费机场订阅节点链接">「9月10日」最高速度18.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-27341.htm" title="动物医院资质要求有哪些内容（动物医院诊疗范围）">动物医院资质要求有哪些内容（动物医院诊疗范围）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe.htm" title="「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-today-vless-node.htm" title="「10月24日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月24日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-high-speed-nodes.htm" title="「11月4日」最高速度22.4M/S，2024年Vless每天更新免费机场订阅节点链接">「11月4日」最高速度22.4M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-26875.htm" title="快递寄宠物怎么寄猫咪（如何快递宠物猫）">快递寄宠物怎么寄猫咪（如何快递宠物猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-today-vless-node.htm" title="「12月7日」最高速度22.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月7日」最高速度22.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-19-vless-windows.htm" title="「9月19日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接">「9月19日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
