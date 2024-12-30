@@ -3,11 +3,10 @@
 <!-- BEGIN HEAD -->
 
 <head>
-        <link rel="canonical" href="https://vlessgithub.github.io" />
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-33001.htm" />
     <meta charset="utf-8" />
-    <title>2024-10归档 - 第3页 - Vless Github机场订阅官网</title>
-        <meta name="keywords" content="2024-10归档Vless Github机场订阅官网" />
-        <meta name="description" content="2024-10归档，当前是第3页" />
+    <title>浅谈Vue下的components模板</title>
+        <meta name="description" content="浅谈Vue下的components模板  晴 微风 温度 12-24°C 在我们越来越深入Vue时，我们会发现我们对HTML代码的工程量会越来越少，今天我们来谈谈Vue下的 components模板的" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -35,7 +34,7 @@
 <!-- END HEAD -->
 <!-- BODY -->
 
-<body id="body" data-spy="scroll" data-target=".header" data-page="category">
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
         <!--========== HEADER ==========-->
     <header class="header navbar-fixed-top">
         <!-- Navbar -->
@@ -80,9 +79,9 @@
             <div class="row">
                 <div class="col-sm-6 sm-margin-b-60">
                     <div class="margin-b-30">
-                        <h1 class="promo-block-title">2024-10 归档</h1>
+                        <h1 class="promo-block-title">浅谈Vue下的components模板</h1>
                         <p class="promo-block-text">
-                            <a href="/">首页</a> / 2024-10 归档
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
                         </p>
                     </div>
                 </div>
@@ -102,29 +101,12 @@
         <div class="container content-lg">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-10-01">
-                            <div class="col-md-3">
-                                <a href="/free-nodes/2024-10-1-vless-windows.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240903/044de0a5ef15f211d8abd29ee9853f7a.webp" alt="「10月1日」最高速度19.8M/S，2024年Vless每天更新免费机场订阅节点链接" class="full-width img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="section-seperator margin-b-50">
-                                    <div class="margin-b-50">
-                                        <div class="margin-b-30">
-                                            <a href="/free-nodes/2024-10-1-vless-windows.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「10月1日」最高速度19.8M/S，2024年Vless每天更新免费机场订阅节点链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了香港、新加坡、加拿大、韩国、欧洲、美国、日本等地区,最高速度可达19.8 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <hr/> <h2 id="浅谈vue下的components模板">浅谈Vue下的components模板</h2> <blockquote> <p>晴 微风 温度 12-24°C<br /> 在我们越来越深入Vue时，我们会发现我们对HTML代码的工程量会越来越少，今天我们来谈谈Vue下的 components模板的 初步使用方法与 应用</p> <p>我们先来简单的写一段components代码<br /> (局部方法创造模板)</p> </blockquote> <pre class="prettyprint"><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span><span class="hljs-property">id</span>=<span class="hljs-string">"app"</span>&gt;   &lt;haha&gt;&lt;/haha&gt; &lt;/<span class="hljs-keyword">div</span>&gt;  /* 这是最简单常用的一种创造模板方法，局部方法创造模板 要注意,局部模板 的作用范围 只在 相对的vue对象 范围内  比如 这个例子, &lt;haha&gt;&lt;/haha&gt;的范围 只在 &lt;<span class="hljs-keyword">div</span><span class="hljs-property">id</span>=<span class="hljs-string">"app"</span>&gt; &lt;/<span class="hljs-keyword">div</span>&gt;内 因为  haha 挂载在 vm的components下 而 vm挂载的 对应节点是<span class="hljs-property">id</span>=app的<span class="hljs-keyword">div</span>上 */ let vm = new Vue({     el:<span class="hljs-string">"#app"</span>,     data:{   },     components:{<span class="hljs-string">"haha"</span>:{       template:<span class="hljs-string">"&lt;div&gt;哈哈哈&lt;div&gt;"</span>     }   } });</code></pre> <blockquote> <p>(共有模板/全局模板)，全局模板 顾名思义 肯定是 放在哪里都能用</p> </blockquote> <pre class="prettyprint"><code class="hljs axapta">&lt;<span class="hljs-keyword">div</span> id=<span class="hljs-string">"app"</span>&gt;   &lt;hehe&gt;&lt;/hehe&gt; &lt;/<span class="hljs-keyword">div</span>&gt;<span class="hljs-comment">//这里使用Vue.component原型方法来创造</span>   Vue.component(<span class="hljs-string">"hehe"</span>,template:<span class="hljs-string">"&lt;div&gt;呵呵呵&lt;div&gt;"</span> );  let vm =<span class="hljs-keyword">new</span> Vue({     el:<span class="hljs-string">"#app"</span>,     data:{   },     components:{<span class="hljs-comment">//这里则不需要添加,因为 互不影响</span>   } });</code></pre> <blockquote> <p>其他方法</p> </blockquote> <pre class="prettyprint"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span><span class="hljs-attribute">id</span>=<span class="hljs-value">"app"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">xixi</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">xixi</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>  let xixi={   template:"<span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>嘻嘻嘻<span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>" }  let vm = new Vue({   el : "#app",   data{   },   components:{     xixi   }  });</code></pre> <blockquote> <p>(模板的继承)，全局模板 顾名思义 肯定是 放在哪里都能用</p> </blockquote> <pre class="prettyprint"><code class="hljs lasso"><span class="hljs-comment">/*   我们来讲个最简单的 父亲，儿子 ，孙子的 例子   要注意以下几点：         1.先实例化对象vm         2.造出parent模板,并挂载在 vm的 conponents 下         3.造出 son 模板 并 挂载 在 父级 parent 的conponents下，并在 父级template属性中 包裹住自己的 模板名标签 ；同理 造出孙子标签         4.在HTML节点中添加 目标 根节点               （节点的顺序一定要书写正确） */</span><span class="hljs-subst">&lt;</span>div id<span class="hljs-subst">=</span><span class="hljs-string">"app"</span><span class="hljs-subst">&gt;</span><span class="hljs-subst">&lt;</span><span class="hljs-keyword">parent</span><span class="hljs-subst">&gt;&lt;</span>/<span class="hljs-keyword">parent</span><span class="hljs-subst">&gt;</span><span class="hljs-subst">&lt;</span>/div<span class="hljs-subst">&gt;</span><span class="hljs-comment">//创建 孙子 模板</span><span class="hljs-keyword">let</span> grendson<span class="hljs-subst">=</span> {      template:<span class="hljs-string">"&lt;div&gt;孙子&lt;/div&gt;"</span>  }<span class="hljs-comment">//创建 儿子 模板</span><span class="hljs-keyword">let</span> son<span class="hljs-subst">=</span> {      template:<span class="hljs-string">"&lt;son&gt;儿子&lt;grendson &gt;孙子&lt;/grendson &gt;&lt;/son&gt;"</span>     components:{      grendson      }  }<span class="hljs-comment">//创建 父亲 模板</span><span class="hljs-keyword">let</span><span class="hljs-keyword">parent</span><span class="hljs-subst">=</span> {      template:<span class="hljs-string">"&lt;div&gt;父亲&lt;son&gt;&lt;/son&gt;&lt;/div&gt;"</span>     components:{      son     }  }<span class="hljs-comment">//实例化vm对象</span><span class="hljs-keyword">let</span> vm<span class="hljs-subst">=</span><span class="hljs-literal">new</span> Vue({     el:<span class="hljs-string">"#app"</span>,<span class="hljs-built_in">data</span>:{     },     components:{<span class="hljs-keyword">parent</span>     } });</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33000.htm">在C ++ STL中列出swap()</a></p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/date/2024-10/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-10/">1</a></li><li><a href="/date/2024-10/page-2.htm">2</a></li><li><a href="/date/2024-10/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
-                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -132,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-latest-vless-node.htm" title="「9月30日」最高速度18.3M/S，2024年Vless每天更新免费机场订阅节点链接">「9月30日」最高速度18.3M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-27341.htm" title="动物医院资质要求有哪些内容（动物医院诊疗范围）">动物医院资质要求有哪些内容（动物医院诊疗范围）</a></li>
-                        <li class="py-2"><a href="/news/article-31575.htm" title="动物疫苗包括哪些（动物疫苗是什么）">动物疫苗包括哪些（动物疫苗是什么）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-node-subscribe.htm" title="「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-latest-vless-node.htm" title="「11月24日」最高速度18.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月24日」最高速度18.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-29-vless-github.htm" title="「9月29日」最高速度18.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月29日」最高速度18.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-21789.htm" title="动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）">动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）</a></li>
-                        <li class="py-2"><a href="/news/article-25480.htm" title="成都市宠物领养中心电话（成都市宠物领养中心电话号码）">成都市宠物领养中心电话（成都市宠物领养中心电话号码）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-latest-vless-node.htm" title="「10月18日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月18日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-vless-node.htm" title="「11月8日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接">「11月8日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19957.htm" title="动物防疫站疫苗免费吗现在（动物防疫站打四联疫苗多少钱）">动物防疫站疫苗免费吗现在（动物防疫站打四联疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-today-vless-node.htm" title="「12月4日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接">「12月4日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-latest-vless-node.htm" title="「11月13日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月13日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-26411.htm" title="Java四舍五入保留两位小数">Java四舍五入保留两位小数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-latest-vless-node.htm" title="「12月11日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月11日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-high-speed-nodes.htm" title="「9月25日」最高速度21.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月25日」最高速度21.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-node-share.htm" title="「9月3日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月3日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-vless-node.htm" title="「9月27日」最高速度19.3M/S，2024年Vless每天更新免费机场订阅节点链接">「9月27日」最高速度19.3M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-vless-node-github.htm" title="「11月7日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接">「11月7日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21788.htm" title="海拉鲁地图怎么获得（海拉鲁图鉴怎么收集）">海拉鲁地图怎么获得（海拉鲁图鉴怎么收集）</a></li>
                     </ul>
     </div>
 </div>
