@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<!-- BEGIN HEAD -->
+
+<head>
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-34424.htm" />
+    <meta charset="utf-8" />
+    <title>Go能实现AOP吗</title>
+        <meta name="description" content="hello~大家好，我是小楼，今天分享的话题是Go是否能实现AOP? 背景 写Java的同学来写Go就特别喜欢将两者进行对比，就经常看到技术群里讨论，比如Go能不能实现Java那样的AOP啊？Go写个" />
+        <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/vlessgithub/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/vlessgithub/animate.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/vlessgithub/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/vlessgithub/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2HXTZV7HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2HXTZV7HY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- END HEAD -->
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>Vless Github</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block category">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h1 class="promo-block-title">Go能实现AOP吗</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-block-img-wrap">
+                        <img class="promo-block-img img-responsive" src="/assets/website/img/vlessgithub/mockup/avatar-01.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>hello~大家好，我是小楼，今天分享的话题是<code>Go是否能实现AOP?</code></p> <h3 id="背景">背景</h3> <p>写Java的同学来写Go就特别喜欢将两者进行对比，就经常看到技术群里讨论，比如Go能不能实现Java那样的AOP啊？Go写个事务好麻烦啊，有没有Spring那样的@Transactional注解啊？</p> <p>遇到这样的问题我通常会回复：没有、实现不了、再见。</p> <p>直到看了《Go语言底层原理剖析》这本书，开始了一轮认真地探索。</p> <h3 id="java是如何实现aop的">Java是如何实现AOP的</h3> <p>AOP概念第一次是在若干年前学Java时看的一本书《Spring实战》中看到的，它指的是一种面向切面编程的思想。注意它只是一种思想，具体怎么实现，你看着办。</p> <p>AOP能在你代码的前后织入代码，这就能做很多有意思的事情了，比如统一的日志打印、监控埋点，事务的开关，缓存等等。</p> <p>可以分享一个我当年学习AOP时的笔记片段：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c2542136cbe44816f74b310c29ed056b.jpg" alt="Go能实现AOP吗"></p> <p>在Java中的实现方式可以是<code>JDK动态代理</code>和<code>字节码增强技术</code>。</p> <p>JDK动态代理是在运行时动态地生成了一个代理类，JVM通过加载这个代理类再实例化来实现AOP的能力。</p> <p>字节码增强技术可以多唠叨两句，当年学Java时第一章就说Java的特点是「一次编译，到处运行」。</p> <p>但当我们真正在工作中这个特性用处大吗？好像并不大，生产中都使用了同一种服务器，只编译了一次，也都只在这个系统运行。做到一次编译，到处运行的技术底座是JVM，JVM可以加载字节码并运行，这个字节码是平台无关的一种二进制中间码。</p> <p>似乎这个设定带来了一些其他的好处。在JVM加载字节码时，字节码有一次被修改的机会，但这个字节码的修改比较复杂，好在有现成的库可用，如ASM、Javassist等。</p> <p>至于像ASM这样的库是如何修改字节码的，我还真就去问了Alibaba Dragonwell的一位朋友，他回答ASM是基于Java字节码规范所做的「硬改」，但做了一些抽象，总体来说还是比较枯燥的。</p> <p>由于这不是本文重点，所以只是提一下，如果想更详细地了解可自行网上搜索。</p> <h3 id="go能否实现aop">Go能否实现AOP？</h3> <p>之前用「扁鹊三连」的方式回复Go不能实现AOP的基础其实就是我对Java实现AOP的思考，因为Go没有虚拟机一说，也没有中间码，直接源码编译为可执行文件，可执行文件基本没法修改，所以做不了。</p> <p>但真就如此吗？我搜索了一番。</p> <h4 id="运行时拦截">运行时拦截</h4> <p>还真就在Github找到了一个能实现类似AOP功能的库<code>gohook</code>（当然也有类似的其他库）：</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/brahma-adshonor/gohook"  target="_blank" rel="nofollow">https://github.com/brahma-adshonor/gohook</a></p> </blockquote> <p>看这个项目的介绍：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/51a1f1729661d498b82ee169be5cb8b2.jpg" alt="Go能实现AOP吗"></p> <p>运行时动态地hook Go的方法，也就是可以在方法前插入一些逻辑。它是怎么做到的？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0454f2633236a980aed1ca86edb82e36.jpg" alt="Go能实现AOP吗"></p> <p>通过反射找到方法的地址（指针），然后插入一段代码，执行完后再执行原方法。听起来很牛X，但它下面有个Notes：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/32ad6051aee0ba0cbadf5f6036b3d2d7.jpg" alt="Go能实现AOP吗"></p> <p>使用有一些限制，更重要的是没有完全测试，不建议生产使用。这种不可靠的方式也就不尝试了。</p> <h4 id="ast修改源码">AST修改源码</h4> <p>这种方式就是我在看《Go语言底层原理剖析》第一章看到的，其实我之前的文章也有写过关于AST的，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/xp0hlRemUjlzoNmzv5lPlQ"  target="_blank" rel="nofollow">《Cobar源码分析之AST》</a>。</p> <p>AST即抽象语法树，可以认为所有的高级编程语言都可以抽象为一种语法树，即对代码进行结构化的抽象，这种抽象可以让我们更加简单地分析甚至操作源码。</p> <p>Go在编译时大概分为词法与语法分析、类型检查、通用 SSA 生成和最后的机器代码生成这几个阶段。</p> <p>其中词法与语法分析之后，生成一个AST树，在Go中我们能调用Go提供的API很轻易地生成AST：</p> <pre><code class="language-go">fset := token.NewFileSet() // 这里file就是一个AST对象 file, err := parser.ParseFile(fset, "aop.go", nil, parser.ParseComments)</code></pre> <p>比如这里我的aop.go文件是这样的：</p> <pre><code class="language-go">package main  import "fmt"  func main() { 	fmt.Println(execute("roshi")) }  func execute(name string) string { 	return name }</code></pre> <p>想看生成的AST长什么样，可调用下面的方法：</p> <pre><code class="language-go">ast.Print(fset, file)</code></pre> <p>由于篇幅太长，我截个图感受下即可：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/047c9d0064c69f48667d42ea1fcff60e.jpg" alt="Go能实现AOP吗"></p> <p>当然也有一些开源的可视化工具，但我觉得大可不必，想看的话Debug看下<code>file</code>的结构。</p> <p>至于Go AST结构的介绍，也不是本文的重点，而且AST中的类型很多很多，我建议如果你想看的话直接Debug来看，对照源码比较清晰。</p> <p>我们这里就实现一个简单的，在execute方法执行之前添加一条打印<code>before</code>的语句，接上述代码：</p> <pre><code class="language-go">const before = "fmt.Println(\"before\")" ...  exprInsert, err := parser.ParseExpr(before) if err != nil { 	panic(err) }  decls := make([]ast.Decl, 0, len(file.Decls))  for _, decl := range file.Decls { 	fd, ok := decl.(*ast.FuncDecl) 	if ok { 		if fd.Name.Name == "execute" { 			stats := make([]ast.Stmt, 0, len(fd.Body.List)+1) 			stats = append(stats, &amp;ast.ExprStmt{ 				X: exprInsert, 			}) 			stats = append(stats, fd.Body.List...) 			fd.Body.List = stats 			decls = append(decls, fd) 			continue 		} else { 			decls = append(decls, decl) 		} 	} else { 		decls = append(decls, decl) 	} }  file.Decls = decls</code></pre> <p>这里AST就被我们修改了，虽然我们是写死了针对execute方法，但总归是迈出了第一步。</p> <p>再把AST转换为源码输出，Go也提供了API：</p> <pre><code class="language-go">var cfg printer.Config var buf bytes.Buffer  cfg.Fprint(&amp;buf, fset, file)  fmt.Printf(buf.String())</code></pre> <p>输出效果如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cf40b1263e8e85ac1583858632eb5b53.jpg" alt="Go能实现AOP吗"></p> <p>看到这里，我猜你应该有和我相同的想法，这玩意是不是可以用来格式化代码？</p> <p>没错，Go自带的格式化代码工具gofmt的原理就是如此。</p> <p>当我们写完代码时，可以执行gofmt对代码进行格式化：</p> <blockquote> <p>gofmt test.go</p> </blockquote> <p>这相比于其他语言方便很多，终于有个官方的代码格式了，甚至你可以在IDEA中安装一个file watchers插件，监听文件变更，当文件有变化时自动执行 gofmt 来格式化代码。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b938ab585fab632554812f554ef171fc.jpg" alt="Go能实现AOP吗"></p> <p>看到这里你可能觉得太简单了，我查了下资料，AST中还能拿到注释，这就厉害了，我们可以把注释当注解来玩，比如我加了<code>// before:</code> 的注释，自动把这个注释后的代码添加到方法之前去。</p> <pre><code class="language-go">// before:fmt.Println("before...") func executeComment(name string) string { 	return name }</code></pre> <p>修改AST代码如下，为了篇幅，省略了打印代码：</p> <pre><code class="language-go">cmap := ast.NewCommentMap(fset, file, file.Comments)  for _, decl := range file.Decls { 	fd, ok := decl.(*ast.FuncDecl) 	if ok { 		if cs, ok := cmap[fd]; ok { 			for _, cg := range cs { 				for _, c := range cg.List { 					if strings.HasPrefix(c.Text, "// before:") { 						txt := strings.TrimPrefix(c.Text, "// before:") 						ei, err := parser.ParseExpr(txt) 						if err == nil { 							stats := make([]ast.Stmt, 0, len(fd.Body.List)+1) 							stats = append(stats, &amp;ast.ExprStmt{ 								X: ei, 							}) 							stats = append(stats, fd.Body.List...) 							fd.Body.List = stats 							decls = append(decls, fd) 							continue 						} 					} 				} 			} 		} else { 			decls = append(decls, decl) 		} 	} else { 		decls = append(decls, decl) 	} }  file.Decls = decls</code></pre> <p>跑一下看看：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/35ef2e273d7a31f5d4e75cc09d5f5e6c.jpg" alt="Go能实现AOP吗"></p> <p>虽然又是硬编码，但这不重要，又不是不能用~</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6c3f815570a336a6afbd434cd355f29a.jpg" alt="Go能实现AOP吗"></p> <p>但你发现，这样实现AOP有个缺点，必须在编译期对代码进行一次重新生成，理论上来说，所有高级编程语言都可以这么操作。</p> <p>但这不是说毫无用处，比如这篇文章<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/pCcNtUykXAwb-BN_prPGpA"  target="_blank" rel="nofollow">《每个 gopher 都需要了解的 Go AST》</a>就给了我们一个实际的案例：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/01e818e7c66af86c67f82a11bc5cd1c0.jpg" alt="Go能实现AOP吗"></p> <h3 id="最后">最后</h3> <p>写到最后，我又在思考另一个问题，为什么Go的使用者没有AOP的需求呢？反倒是写Java的同学会想到AOP。</p> <p>我觉得可能还是Go太年轻了，Java之所以要用AOP，很大的原因是代码已经堆积如山，没法修改，历史包袱沉重，最小代价实现需求是首选，所以会选择AOP这种技术。</p> <p>反观Go还年轻，大多数项目属于造轮子期间，需要AOP的地方早就在代码中提前埋伏好了。我相信随着发展，一定也会出现一个生产可用Go AOP框架。</p> <p>至于现在问我，Go能否实现AOP，我还是回答：没有、实现不了、再见。</p> <p>对了，本文的完整测试代码这里可以看到：</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lkxiaolou/all-in-one/tree/master/go-in-one/samples/tree"  target="_blank" rel="nofollow">https://github.com/lkxiaolou/all-in-one/tree/master/go-in-one/samples/tree</a></p> </blockquote> <p></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33955.htm">动物疫苗在哪里买的正规（动物注射疫苗注射哪里）</a></p>
+                                        <p>下一个：<a href="/news/article-34425.htm">自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25015.htm" title="基于web的宠物领养系统的设计毕业论文（宠物领养网站源码）">基于web的宠物领养系统的设计毕业论文（宠物领养网站源码）</a></li>
+                        <li class="py-2"><a href="/news/article-32049.htm" title="宠物粮食品牌名字4个字大全图片及名字怎么写（宠物粮食品牌名字4个字大全图片及名字怎么写的）">宠物粮食品牌名字4个字大全图片及名字怎么写（宠物粮食品牌名字4个字大全图片及名字怎么写的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-subscribe-node.htm" title="「12月14日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月14日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-vless-github.htm" title="「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-vless-windows.htm" title="「11月21日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月21日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-28732.htm" title="宠物疫苗低温保存（宠物疫苗低温保存方法）">宠物疫苗低温保存（宠物疫苗低温保存方法）</a></li>
+                        <li class="py-2"><a href="/news/article-27805.htm" title="妙三多疫苗间隔多久打一针最好（妙三多疫苗间隔多久打一针最好呢）">妙三多疫苗间隔多久打一针最好（妙三多疫苗间隔多久打一针最好呢）</a></li>
+                        <li class="py-2"><a href="/news/article-23624.htm" title="小动物注射疫苗证明（小动物疫苗本）">小动物注射疫苗证明（小动物疫苗本）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe.htm" title="「11月9日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接">「11月9日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-34425.htm" title="自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）">自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/vlessgithub/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/swiper.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+<!-- END BODY -->
+
+</html>
