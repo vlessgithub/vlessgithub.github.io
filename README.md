@@ -1,4 +1,4 @@
-# 「1月14日」最高速度18.7M/S，2025年Vless每天更新免费机场节点地址链接  更新时间 2025-01-14 07:45:13
+# 「1月15日」最高速度18M/S，2025年Vless每天更新免费机场节点地址链接  更新时间 2025-01-15 10:35:34
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://vlessgithub.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://vlessgithub.github.io/uploads/2025/01/0-20250114.yaml
-- https://vlessgithub.github.io/uploads/2025/01/1-20250114.yaml
-- https://vlessgithub.github.io/uploads/2025/01/2-20250114.yaml
-- https://vlessgithub.github.io/uploads/2025/01/3-20250114.yaml
-- https://vlessgithub.github.io/uploads/2025/01/4-20250114.yaml
+- https://vlessgithub.github.io/uploads/2025/01/0-20250115.yaml
+- https://vlessgithub.github.io/uploads/2025/01/1-20250115.yaml
+- https://vlessgithub.github.io/uploads/2025/01/2-20250115.yaml
+- https://vlessgithub.github.io/uploads/2025/01/3-20250115.yaml
+- https://vlessgithub.github.io/uploads/2025/01/4-20250115.yaml
 
 ### V2ray订阅链接
 
-- https://vlessgithub.github.io/uploads/2025/01/0-20250114.txt
-- https://vlessgithub.github.io/uploads/2025/01/1-20250114.txt
-- https://vlessgithub.github.io/uploads/2025/01/2-20250114.txt
-- https://vlessgithub.github.io/uploads/2025/01/3-20250114.txt
-- https://vlessgithub.github.io/uploads/2025/01/4-20250114.txt
+- https://vlessgithub.github.io/uploads/2025/01/0-20250115.txt
+- https://vlessgithub.github.io/uploads/2025/01/1-20250115.txt
+- https://vlessgithub.github.io/uploads/2025/01/2-20250115.txt
+- https://vlessgithub.github.io/uploads/2025/01/3-20250115.txt
+- https://vlessgithub.github.io/uploads/2025/01/4-20250115.txt
 
 ### Sing-box订阅链接
 
-- https://vlessgithub.github.io/uploads/2025/01/20250114.json
+- https://vlessgithub.github.io/uploads/2025/01/20250115.json
 
 ## 更多clash节点订阅 ：
 
