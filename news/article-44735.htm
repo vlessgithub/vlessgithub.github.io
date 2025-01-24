@@ -134,6 +134,7 @@
                   				  				  				<h2>解决方法：</h2> <div class="ay1code"> <pre class="brush:cpp;">QTextDocument* doc = ui-&gt;edtCountryIntroduce-&gt;document();    for(QTextBlock it = doc-&gt;begin(); it != doc-&gt;end(); it = it.next())  {      QTextCursor textCursor(it);      QTextBlockFormat textBlockFormat = it.blockFormat();      //set line height      textBlockFormat.setLineHeight(24,QTextBlockFormat::FixedHeight);        textCursor.setBlockFormat(textBlockFormat);      ui-&gt;edtCountryIntroduce-&gt;setTextCursor(textCursor);  }</pre> </div> <blockquote> <p>需要在QTextEdit设置了文字之后，才会生效，放在构造函数里不会生效</p> </blockquote> <p>像这样是不行的</p> <div class="ay1code"> <pre>    QTextCursor textCursor = ui-&gt;textEdit-&gt;textCursor();      QTextBlockFormat textBlockFormat;      //set line height      textBlockFormat.setLineHeight(24,QTextBlockFormat::FixedHeight);        textCursor.setBlockFormat(textBlockFormat);      ui-&gt;textEdit-&gt;setTextCursor(textCursor);</pre> </div> <p>因为这里虽然是给整个textEdit设置，但是实际上，只是给第一段设置了。所以如果如果要对所有的段落进行设置就需要遍历当前textEdit的document中所有的段落，对一个一个的段落进行设置。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-44734.htm">Python- *args 的用法</a></p>
+                                        <p>下一个：<a href="/news/article-45234.htm">删除PicGo的右键菜单的方法</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -143,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-37806.htm" title="java/Springboot项目把Base64数据转为文件">java/Springboot项目把Base64数据转为文件</a></li>
-                        <li class="py-2"><a href="/news/article-33001.htm" title="浅谈Vue下的components模板">浅谈Vue下的components模板</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe.htm" title="「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-vless-node-github.htm" title="「10月9日」最高速度20.5M/S，2024年Vless每天更新免费机场订阅节点链接">「10月9日」最高速度20.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-node-subscribe-links.htm" title="「10月28日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月28日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-vless-node-share.htm" title="「12月24日」最高速度19.7M/S，2024年Vless每天更新免费机场节点地址链接">「12月24日」最高速度19.7M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/news/article-21333.htm" title="我所在的城市里有一家宠物医院用英语怎么说 我所在的城市里有一家宠物医院用英语怎么说">我所在的城市里有一家宠物医院用英语怎么说 我所在的城市里有一家宠物医院用英语怎么说</a></li>
-                        <li class="py-2"><a href="/news/article-42251.htm" title="动物防疫站打疫苗需要什么手续 动物防疫站打疫苗需要什么手续和证件">动物防疫站打疫苗需要什么手续 动物防疫站打疫苗需要什么手续和证件</a></li>
-                        <li class="py-2"><a href="/news/article-43249.htm" title="宠物粮食价格 宠物粮食价格表">宠物粮食价格 宠物粮食价格表</a></li>
-                        <li class="py-2"><a href="/news/article-24089.htm" title="佳雯宠物医院总院投诉电话查询（佳雯宠物医院口碑）">佳雯宠物医院总院投诉电话查询（佳雯宠物医院口碑）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share-links.htm" title="「10月29日」最高速度19.6M/S，2024年Vless每天更新免费机场订阅节点链接">「10月29日」最高速度19.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-latest-vless-node.htm" title="「12月20日」最高速度18.1M/S，2024年Vless每天更新免费机场订阅节点链接">「12月20日」最高速度18.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-high-speed-nodes.htm" title="「11月15日」最高速度18.8M/S，2024年Vless每天更新免费机场订阅节点链接">「11月15日」最高速度18.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21789.htm" title="动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）">动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-node-share-links.htm" title="「11月11日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接">「11月11日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32523.htm" title="springboot项目在启动时自动添加定时任务">springboot项目在启动时自动添加定时任务</a></li>
+                        <li class="py-2"><a href="/news/article-39280.htm" title="动物疫苗的使用方法及注意事项视频教程大全（动物疫苗知识）">动物疫苗的使用方法及注意事项视频教程大全（动物疫苗知识）</a></li>
+                        <li class="py-2"><a href="/news/article-38291.htm" title="对称加解密算法的填充模式">对称加解密算法的填充模式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-high-speed-nodes.htm" title="「10月17日」最高速度22.7M/S，2024年Vless每天更新免费机场订阅节点链接">「10月17日」最高速度22.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-42748.htm" title="宠物领养数据统计软件有哪些（宠物领养小程序有哪些）">宠物领养数据统计软件有哪些（宠物领养小程序有哪些）</a></li>
                     </ul>
     </div>
 </div>
@@ -164,7 +165,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
