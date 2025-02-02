@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+<!-- BEGIN HEAD -->
+
+<head>
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-49697.htm" />
+    <meta charset="utf-8" />
+    <title>【C/C++】alloca、malloc、calloc、realloc的区别</title>
+        <meta name="description" content="1、从静态存储区域分配 内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在.例如全局变量、static变量 2、在栈上创建 在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函" />
+        <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-49697.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="【C/C++】alloca、malloc、calloc、realloc的区别" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/5cc2743186081c53983e35266851697d.webp" />
+        <meta property="og:release_date" content="2025-02-02T09:25:07" />
+    <meta property="og:updated_time" content="2025-02-02T09:25:07" />
+        <meta property="og:description" content="1、从静态存储区域分配 内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在.例如全局变量、static变量 2、在栈上创建 在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【C/C++】alloca、malloc、calloc、realloc的区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/vlessgithub/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/vlessgithub/animate.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/vlessgithub/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/vlessgithub/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2HXTZV7HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2HXTZV7HY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- END HEAD -->
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>Vless Github</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block category">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h1 class="promo-block-title">【C/C++】alloca、malloc、calloc、realloc的区别</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-block-img-wrap">
+                        <img class="promo-block-img img-responsive" src="/assets/website/img/vlessgithub/mockup/avatar-01.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>1、从静态存储区域分配</p> <p>内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在.例如全局变量、static变量</p> <p>2、在栈上创建</p> <p>在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放，栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限</p> <p>3、从堆上分配，也称动态内存分配</p> <p>程序在运行的时候用malloc或new申请任意多少的内存，程序员自己负责在何时用free或delete释放内存，动态内存的生存期由用户决定，使用非常灵活，但问题也最多</p> </h1> <ol> <li>alloca是向栈申请内存，因此无需释放</li> <li>malloc分配的内存是位于堆中的，并且没有初始化内存的内容，因此基本上malloc之后，调用函数memset来初始化这部分的内存空间</li> <li>calloc则将初始化这部分的内存，设置为0</li> <li>realloc则对malloc申请的内存进行大小的调整</li> <li>申请的内存最终需要通过函数free来释放</li> </ol> <p>当程序运行过程中使用malloc了，但是没有free的话，会造成内存泄漏。一部分的内存没有被使用，但是由于没有free，因此系统认为这部分内存还在使用，造成不断的向系统申请内存，使得系统可用内存不断减少。但是<strong>内存泄漏仅仅指程序在运行时</strong>，程序退出时，OS将回收所有的资源。因此，适当的重起一下程序，有时候还是有点作用</p> </h1> <p>三个函数的申明分别是：</p> <pre><code class="prism language-cpp"><span class="token keyword">void</span><span class="token operator">*</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token function">realloc</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> ptr<span class="token punctuation">,</span><span class="token keyword">unsigned</span> newsize<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token function">calloc</span><span class="token punctuation">(</span>size_t numElements<span class="token punctuation">,</span> size_t sizeOfElement<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>都在stdlib.h函数库内，它们的返回值都是请求系统分配的地址，如果请求失败就返回NULL</p> <p>(1)函数malloc()</p> <p>在内存的动态存储区中分配一块长度为size字节的连续区域，参数size为需要内存空间的长度，返回该区域的首地址</p> <p>(2)函数calloc()</p> <p>与malloc相似，参数sizeOfElement为申请地址的单位元素长度，numElements为元素个数，即在内存中申请numElements*sizeOfElement字节大小的连续地址空间</p> <p>(3)函数realloc()</p> <p>给一个已经分配了地址的指针重新分配空间，参数ptr为原有的空间地址，newsize是重新申请的地址长度</p> </h1> <p>1、函数malloc不能初始化所分配的内存空间，而函数calloc能，如果由malloc()函数分配的内存空间原来没有被使用过，则其中的每一位可能都是0；反之，如果这部分内存曾经被分配过，则其中可能遗留有各种各样的数据。也就是说，使用malloc()函数的程序开始时（内存空间还没有被重新分配）能正常进行，但经过一段时间（内存空间已经被重新分配）可能会出现问题</p> <p>2、函数calloc()会将所分配的内存空间中的每一位都初始化为零，也就是说，如果你是为字符类型或整数类型的元素分配内存，那么这些元素将保证会被初始化为0；如果你是为指针类型的元素分配内存，那么这些元素通常会被初始化为空指针；如果你为实型数据分配内存，则这些元素会被初始化为浮点型的零</p> <p>3、函数malloc向系统申请分配指定size个字节的内存空间，返回类型是 void<em>类型。void</em>表示未确定类型的指针，C/C++规定，void* 类型可以强制转换为任何其它类型的指针</p> <p>4、realloc可以对给定的指针所指的空间进行扩大或者缩小，无论是扩张或是缩小，原有内存的中内容将保持不变。当然，对于缩小，则被缩小的那一部分的内容会丢失。realloc并不保证调整后的内存空间和原来的内存空间保持同一内存地址，相反，realloc返回的指针很可能指向一个新的地址</p> <p>5、realloc是从堆上分配内存的，当扩大一块内存空间时，realloc()试图直接从堆上现存的数据后面的那些字节中获得附加的字节，如果能够满足，自然天下太平；如果数据后面的字节不够，问题就出来了，那么就使用堆上第一个有足够大小的自由块，现存的数据然后就被拷贝至新的位置，而老块则放回到堆上.这句话传递的一个重要的信息就是数据可能被移动</p> <pre><code class="prism language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;malloc.h&gt;</span></span><span class="token keyword">int</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span><span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">char</span><span class="token operator">*</span>p<span class="token punctuation">,</span><span class="token operator">*</span>q<span class="token punctuation">;</span>       p<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       q<span class="token operator">=</span> p<span class="token punctuation">;</span>       p<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p=0x%x/n"</span><span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"q=0x%x/n"</span><span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span>       输出结果<span class="token operator">:</span>realloc后，内存地址不变               p<span class="token operator">=</span><span class="token number">0x431a70</span>               q<span class="token operator">=</span><span class="token number">0x431a70</span>         例<span class="token number">2</span><span class="token operator">:</span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;malloc.h&gt;</span></span><span class="token keyword">int</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span><span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">char</span><span class="token operator">*</span>p<span class="token punctuation">,</span><span class="token operator">*</span>q<span class="token punctuation">;</span>       p<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       q<span class="token operator">=</span> p<span class="token punctuation">;</span>       p<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p=0x%x/n"</span><span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"q=0x%x/n"</span><span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span>       输出结果<span class="token operator">:</span>realloc后，内存地址发生了变化               p<span class="token operator">=</span><span class="token number">0x351c0</span>               q<span class="token operator">=</span><span class="token number">0x431a70</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49187.htm">动物疫苗研制过程图片（动物疫苗研究）</a></p>
+                                        <p>下一个：<a href="/news/article-49698.htm">分析fastcache和freecache(一)_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29195.htm" title="动物疫苗经营许可证怎么申请领取的（动物疫苗审批）">动物疫苗经营许可证怎么申请领取的（动物疫苗审批）</a></li>
+                        <li class="py-2"><a href="/news/article-41256.htm" title="为MySQL创建高性能索引_Mysql_">为MySQL创建高性能索引_Mysql_</a></li>
+                        <li class="py-2"><a href="/news/article-35104.htm" title="宠物粮食加工厂设备有哪些种类图片视频 宠物粮食加工厂设备有哪些种类图片视频讲解">宠物粮食加工厂设备有哪些种类图片视频 宠物粮食加工厂设备有哪些种类图片视频讲解</a></li>
+                        <li class="py-2"><a href="/news/article-23623.htm" title="猫打疫苗要几针（猫接种疫苗要打几针）">猫打疫苗要几针（猫接种疫苗要打几针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-latest-vless-node.htm" title="「10月18日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月18日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-31096.htm" title="动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名">动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-subscribe-node.htm" title="「12月14日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月14日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19956.htm" title="动物疫苗的种类及特点有哪些图片（动物疫苗种类及类型）">动物疫苗的种类及特点有哪些图片（动物疫苗种类及类型）</a></li>
+                        <li class="py-2"><a href="/news/article-46221.htm" title="java实现机械表">java实现机械表</a></li>
+                        <li class="py-2"><a href="/news/article-19500.htm" title="动物疫苗管理法律法规最新版本是什么（动物疫苗管理制度）">动物疫苗管理法律法规最新版本是什么（动物疫苗管理制度）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/vlessgithub/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/swiper.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+<!-- END BODY -->
+
+</html>
