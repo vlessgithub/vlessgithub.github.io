@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>Springboot  文件上传(base64方式)</title>
         <meta name="description" content="使用场景： 对于互联网项目，基本都会采用分布式的文件存储方式，比如fastdfs,&nbsp; 保证高用户量的时候 文件操作效率(上传，读取)。 但是对于小型产品来说，一般用户使用量不大，并且对文件的" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-25944.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="Springboot  文件上传(base64方式)" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/cc36252a4b622e1e4d858d3a089430c9.webp" />
+        <meta property="og:release_date" content="2024-12-15T10:43:35" />
+    <meta property="og:updated_time" content="2024-12-15T10:43:35" />
+        <meta property="og:description" content="使用场景： 对于互联网项目，基本都会采用分布式的文件存储方式，比如fastdfs,&nbsp; 保证高用户量的时候 文件操作效率(上传，读取)。 但是对于小型产品来说，一般用户使用量不大，并且对文件的" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot  文件上传(base64方式)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -105,7 +134,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <h2>使用场景：</h2> <p>对于互联网项目，基本都会采用分布式的文件存储方式，比如fastdfs,&nbsp; 保证高用户量的时候</p> <p>文件操作效率(上传，读取)。</p> <p><strong>但是对于小型产品来说，一般用户使用量不大，并且对文件的操作量也不大，甚至很小。</strong></p> <p><strong>如果去给客户部署一套吹牛逼的分布式存储方案，无疑增大了维护成本，得不偿失。</strong></p> <p>针对上述场景，可以考虑使用base64的方式存储。代码如下：</p> <pre class="has"><code>import io.swagger.annotations.Api; import io.swagger.annotations.ApiOperation; import io.swagger.annotations.ApiResponses; import org.springframework.web.bind.annotation.PostMapping; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RequestParam; import org.springframework.web.bind.annotation.RestController; import org.springframework.web.multipart.MultipartFile;  import java.io.File; import java.io.FileInputStream; import java.util.HashMap; import java.util.Map;  @RestController @RequestMapping({"/upload"}) @Api(tags="文件上传") public class UploadController {      @PostMapping({"doUpload"})     @ApiOperation("文件上传(不需要token令牌)")     @ApiResponses({@io.swagger.annotations.ApiResponse(code=200, message="请求成功,返回结果result:{filename 文件名},{base64 base64编码}"), @io.swagger.annotations.ApiResponse(code=400, message="请求失败")})     public Map&lt;String, Object&gt; doUpload(@RequestParam("file") MultipartFile file) throws Exception {         if (file == null) {             return new HashMap(0);         }          Map map = new HashMap(2);          // 原文件名称         String filename = file.getOriginalFilename();          // 创建临时文件         File tempFile = File.createTempFile("tem", null);         file.transferTo(tempFile);         tempFile.deleteOnExit();          // 文件输入流         FileInputStream inputStream = new FileInputStream(tempFile);          byte[] buffer = new byte[(int)tempFile.length()];         inputStream.read(buffer);         inputStream.close();          // 转换为base64编码格式         String base64 = new sun.misc.BASE64Encoder().encode(buffer);          // 上面方法中获得的base64编码中，包含有换行符，统一全部替换掉         base64 = base64.replaceAll("[\\s*\t\n\r]", "");          // 返回值         map.put("filename", filename);         map.put("base64", base64);          return map;     } }</code></pre> <p>关于上述做几点说明：</p> <p><strong>1. 上述文件上传的时候，文件越大，产生的base64值也越大</strong></p> <p>故需要针对系统来评估数据库中对应字段的设计，存储长达，比如是&nbsp; text还是longtext(做个关联表，一般不会频繁操作，优化下查询效率)</p> <p><strong>2. 返回值</strong></p> <p>返回 原文件名称和base64编码</p> <p><strong>3.&nbsp; 页面传值保存</strong></p> <p>尽量采用body的形式传值，因为如果是以拼接的方式，由于值太长太大，会卡死浏览器</p> <p><strong>4.&nbsp; 关于图片 base64方式的显示</strong></p> <pre class="has"><code>// 把下面逗号后面的 base64编码 的文字替换成真正的base64码即可 // 然后放入到html文件中即可显示 &lt;img src="https://img-blog.csdnimg.cn/2022010621212522899.png" alt="Springboot  文件上传(base64方式)"&gt;</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-25480.htm">成都市宠物领养中心电话（成都市宠物领养中心电话号码）</a></p>
-                                        <p>下一个：<a href="/news/article-25945.htm">附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）</a></p>
+                                        <p>下一个：<a href="/news/article-28268.htm">动物多大打疫苗 动物多大打疫苗最好</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-30620.htm" title="动物疫苗研发过程图片（动物疫苗研究进展）">动物疫苗研发过程图片（动物疫苗研究进展）</a></li>
-                        <li class="py-2"><a href="/news/article-32524.htm" title="南京寄养狗狗价格查询（南京宠物寄养价目表）">南京寄养狗狗价格查询（南京宠物寄养价目表）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe.htm" title="「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-vless-windows.htm" title="「10月14日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接">「10月14日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-23624.htm" title="小动物注射疫苗证明（小动物疫苗本）">小动物注射疫苗证明（小动物疫苗本）</a></li>
-                        <li class="py-2"><a href="/news/article-33477.htm" title="狐狸领养网站（收养狐狸有什么说法吗）">狐狸领养网站（收养狐狸有什么说法吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-vless-node.htm" title="「9月27日」最高速度19.3M/S，2024年Vless每天更新免费机场订阅节点链接">「9月27日」最高速度19.3M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-subscribe-node.htm" title="「12月1日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接">「12月1日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-latest-vless-node.htm" title="「11月17日」最高速度20.1M/S，2024年Vless每天更新免费机场订阅节点链接">「11月17日」最高速度20.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-node-subscribe-links.htm" title="「10月2日」最高速度19.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月2日」最高速度19.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21788.htm" title="海拉鲁地图怎么获得（海拉鲁图鉴怎么收集）">海拉鲁地图怎么获得（海拉鲁图鉴怎么收集）</a></li>
+                        <li class="py-2"><a href="/news/article-26412.htm" title="axios安装，配置及配合vue脚手架">axios安装，配置及配合vue脚手架</a></li>
+                        <li class="py-2"><a href="/news/article-43741.htm" title="宠物粮食加工厂加盟条件及费用标准最新（宠物粮食加工厂怎么起步）">宠物粮食加工厂加盟条件及费用标准最新（宠物粮食加工厂怎么起步）</a></li>
+                        <li class="py-2"><a href="/news/article-24567.htm" title="安安宠医总部电话（安安宠医简介）">安安宠医总部电话（安安宠医简介）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-today-vless-node.htm" title="「12月30日」最高速度18.4M/S，2024年Vless每天更新免费机场节点地址链接">「12月30日」最高速度18.4M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-40268.htm" title="想寄猫怎么寄（想寄猫怎么寄快递）">想寄猫怎么寄（想寄猫怎么寄快递）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-latest-vless-node.htm" title="「11月24日」最高速度18.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月24日」最高速度18.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-49186.htm" title="动物医院名字有创意两个字的吗图片高清（动物医院名字有创意两个字的吗图片高清大图）">动物医院名字有创意两个字的吗图片高清（动物医院名字有创意两个字的吗图片高清大图）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-vless-node-github.htm" title="「11月7日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接">「11月7日」最高速度19.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-node-subscribe.htm" title="「1月26日」最高速度22.7M/S，2025年Vless每天更新免费机场节点地址链接">「1月26日」最高速度22.7M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

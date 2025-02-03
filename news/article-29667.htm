@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>Parquet文件格式解析</title>
         <meta name="description" content="Parquet是目前比较流行的大数据文件列存储格式，主流的大数据计算框架都对其有良好的支持，包括spark,hive,impala等。相对于传统的行存储模式，列存储主要有以下优点： 可以跳过不符合条件" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-29667.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="Parquet文件格式解析" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/60adbfe1430a2ab3f7613c120a5ec9a4.webp" />
+        <meta property="og:release_date" content="2024-12-23T09:58:44" />
+    <meta property="og:updated_time" content="2024-12-23T09:58:44" />
+        <meta property="og:description" content="Parquet是目前比较流行的大数据文件列存储格式，主流的大数据计算框架都对其有良好的支持，包括spark,hive,impala等。相对于传统的行存储模式，列存储主要有以下优点： 可以跳过不符合条件" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Parquet文件格式解析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-latest-vless-node.htm" title="「12月22日」最高速度21.6M/S，2024年Vless每天更新免费机场节点地址链接">「12月22日」最高速度21.6M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/news/article-25480.htm" title="成都市宠物领养中心电话（成都市宠物领养中心电话号码）">成都市宠物领养中心电话（成都市宠物领养中心电话号码）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-node-share-links.htm" title="「11月18日」最高速度19.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月18日」最高速度19.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-latest-vless-node.htm" title="「10月18日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月18日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-32524.htm" title="南京寄养狗狗价格查询（南京宠物寄养价目表）">南京寄养狗狗价格查询（南京宠物寄养价目表）</a></li>
-                        <li class="py-2"><a href="/news/article-18623.htm" title="宠物粮加工厂投资多少钱 宠物粮加工厂投资多少钱一个月">宠物粮加工厂投资多少钱 宠物粮加工厂投资多少钱一个月</a></li>
-                        <li class="py-2"><a href="/news/article-26875.htm" title="快递寄宠物怎么寄猫咪（如何快递宠物猫）">快递寄宠物怎么寄猫咪（如何快递宠物猫）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-latest-vless-node.htm" title="「11月17日」最高速度20.1M/S，2024年Vless每天更新免费机场订阅节点链接">「11月17日」最高速度20.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-vless-node.htm" title="「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-31096.htm" title="动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名">动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-vless-node.htm" title="「12月19日」最高速度20.9M/S，2024年Vless每天更新免费机场订阅节点链接">「12月19日」最高速度20.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-vless-node-share.htm" title="「12月26日」最高速度22.2M/S，2024年Vless每天更新免费机场节点地址链接">「12月26日」最高速度22.2M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-latest-vless-node.htm" title="「11月13日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月13日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/news/article-23624.htm" title="小动物注射疫苗证明（小动物疫苗本）">小动物注射疫苗证明（小动物疫苗本）</a></li>
+                        <li class="py-2"><a href="/news/article-25016.htm" title="宠物打完疫苗观察多久（宠物打完疫苗观察多久出结果）">宠物打完疫苗观察多久（宠物打完疫苗观察多久出结果）</a></li>
+                        <li class="py-2"><a href="/news/article-32523.htm" title="springboot项目在启动时自动添加定时任务">springboot项目在启动时自动添加定时任务</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-vless-windows.htm" title="「11月10日」最高速度21.2M/S，2024年Vless每天更新免费机场订阅节点链接">「11月10日」最高速度21.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-42251.htm" title="动物防疫站打疫苗需要什么手续 动物防疫站打疫苗需要什么手续和证件">动物防疫站打疫苗需要什么手续 动物防疫站打疫苗需要什么手续和证件</a></li>
+                        <li class="py-2"><a href="/news/article-39279.htm" title="URL编码及解码">URL编码及解码</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

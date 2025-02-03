@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>Spring Boot项目配置Druid数据源(druid-spring-boot-starter)</title>
         <meta name="description" content="Druid介绍 Druid是阿里巴巴的一个开源项目，号称为监控而生的数据库连接池，在功能、性能、扩展性方面都超过其他例如DBCP、C3P0、BoneCP、Proxool、JBoss DataSourc" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-32048.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="Spring Boot项目配置Druid数据源(druid-spring-boot-starter)" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/98d7a176796dfbae180d18d83464e71f.webp" />
+        <meta property="og:release_date" content="2024-12-28T10:04:37" />
+    <meta property="og:updated_time" content="2024-12-28T10:04:37" />
+        <meta property="og:description" content="Druid介绍 Druid是阿里巴巴的一个开源项目，号称为监控而生的数据库连接池，在功能、性能、扩展性方面都超过其他例如DBCP、C3P0、BoneCP、Proxool、JBoss DataSourc" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Boot项目配置Druid数据源(druid-spring-boot-starter)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-latest-vless-node.htm" title="「10月11日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「10月11日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-node-subscribe.htm" title="「10月8日」最高速度21.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月8日」最高速度21.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-25944.htm" title="Springboot  文件上传(base64方式)">Springboot  文件上传(base64方式)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-24-today-vless-node.htm" title="「10月24日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月24日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-node-share.htm" title="「9月6日」最高速度20.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月6日」最高速度20.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-26875.htm" title="快递寄宠物怎么寄猫咪（如何快递宠物猫）">快递寄宠物怎么寄猫咪（如何快递宠物猫）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe.htm" title="「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月7日」最高速度22.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-31096.htm" title="动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名">动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名</a></li>
-                        <li class="py-2"><a href="/news/article-19499.htm" title="@NotEmpty、@NotBlank等注解的正确使用 @Validated和@Valid的区别 解决@NotBlank等注解不生效的问题 使用BindingResult进行接口请求参数的统一校验">@NotEmpty、@NotBlank等注解的正确使用 @Validated和@Valid的区别 解决@NotBlank等注解不生效的问题 使用BindingResult进行接口请求参数的统一校验</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-vless-node-share.htm" title="「10月25日」最高速度18M/S，2024年Vless每天更新免费机场订阅节点链接">「10月25日」最高速度18M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share.htm" title="「1月21日」最高速度18.3M/S，2025年Vless每天更新免费机场节点地址链接">「1月21日」最高速度18.3M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-49698.htm" title="分析fastcache和freecache(一)_在线工具">分析fastcache和freecache(一)_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-today-vless-node.htm" title="「1月12日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接">「1月12日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-latest-vless-node.htm" title="「12月11日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月11日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-subscribe-node.htm" title="「1月29日」最高速度22.4M/S，2025年Vless每天更新免费机场节点地址链接">「1月29日」最高速度22.4M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-21789.htm" title="动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）">动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-today-vless-node.htm" title="「12月7日」最高速度22.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月7日」最高速度22.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-subscribe-node.htm" title="「1月22日」最高速度20.9M/S，2025年Vless每天更新免费机场节点地址链接">「1月22日」最高速度20.9M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-41257.htm" title="开宠物医院的基本要求有哪些（开宠物医院的流程）">开宠物医院的基本要求有哪些（开宠物医院的流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-node-subscribe-links.htm" title="「12月2日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接">「12月2日」最高速度18.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

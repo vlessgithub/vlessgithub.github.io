@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>python调用C的函数</title>
         <meta name="description" content="python如何调用C的函数 需要用到ctypes这个库  官方文档 ctypes是python的一个外部函数库，它提供兼容C的数据类型，允许调用DLL或共享库中的函数。它可以用纯python来封装这" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-20873.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="python调用C的函数" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/044de0a5ef15f211d8abd29ee9853f7a.webp" />
+        <meta property="og:release_date" content="2024-12-04T08:41:37" />
+    <meta property="og:updated_time" content="2024-12-04T08:41:37" />
+        <meta property="og:description" content="python如何调用C的函数 需要用到ctypes这个库  官方文档 ctypes是python的一个外部函数库，它提供兼容C的数据类型，允许调用DLL或共享库中的函数。它可以用纯python来封装这" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python调用C的函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-33478.htm" title="宠物粮食生产厂家（国内宠物粮食十大厂家）">宠物粮食生产厂家（国内宠物粮食十大厂家）</a></li>
-                        <li class="py-2"><a href="/news/article-24089.htm" title="佳雯宠物医院总院投诉电话查询（佳雯宠物医院口碑）">佳雯宠物医院总院投诉电话查询（佳雯宠物医院口碑）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-latest-vless-node.htm" title="「12月5日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接">「12月5日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-vless-node.htm" title="「9月4日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接">「9月4日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share.htm" title="「12月27日」最高速度21.2M/S，2024年Vless每天更新免费机场节点地址链接">「12月27日」最高速度21.2M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-today-vless-node.htm" title="「9月9日」最高速度21.8M/S，2024年Vless每天更新免费机场订阅节点链接">「9月9日」最高速度21.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-23165.htm" title="动物医院的电话是什么号啊（动物医院的电话号码）">动物医院的电话是什么号啊（动物医院的电话号码）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-vless-node-share.htm" title="「10月22日」最高速度20.4M/S，2024年Vless每天更新免费机场订阅节点链接">「10月22日」最高速度20.4M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-24567.htm" title="安安宠医总部电话（安安宠医简介）">安安宠医总部电话（安安宠医简介）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-node-subscribe.htm" title="「9月20日」最高速度22.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月20日」最高速度22.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-40764.htm" title="猫咪三针疫苗间隔多久打一次啊（猫的三针疫苗相隔多久）">猫咪三针疫苗间隔多久打一次啊（猫的三针疫苗相隔多久）</a></li>
+                        <li class="py-2"><a href="/news/article-32049.htm" title="宠物粮食品牌名字4个字大全图片及名字怎么写（宠物粮食品牌名字4个字大全图片及名字怎么写的）">宠物粮食品牌名字4个字大全图片及名字怎么写（宠物粮食品牌名字4个字大全图片及名字怎么写的）</a></li>
+                        <li class="py-2"><a href="/news/article-33001.htm" title="浅谈Vue下的components模板">浅谈Vue下的components模板</a></li>
+                        <li class="py-2"><a href="/news/article-43249.htm" title="宠物粮食价格 宠物粮食价格表">宠物粮食价格 宠物粮食价格表</a></li>
+                        <li class="py-2"><a href="/news/article-19042.htm" title="MM32F0140 UART1硬件自动波特率校准功能的使用">MM32F0140 UART1硬件自动波特率校准功能的使用</a></li>
+                        <li class="py-2"><a href="/news/article-35104.htm" title="宠物粮食加工厂设备有哪些种类图片视频 宠物粮食加工厂设备有哪些种类图片视频讲解">宠物粮食加工厂设备有哪些种类图片视频 宠物粮食加工厂设备有哪些种类图片视频讲解</a></li>
+                        <li class="py-2"><a href="/news/article-20874.htm" title="上海宠物领养日期查询官网（上海宠物狗领养网站）">上海宠物领养日期查询官网（上海宠物狗领养网站）</a></li>
+                        <li class="py-2"><a href="/news/article-19957.htm" title="动物防疫站疫苗免费吗现在（动物防疫站打四联疫苗多少钱）">动物防疫站疫苗免费吗现在（动物防疫站打四联疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-vless-node-github.htm" title="「1月10日」最高速度21.7M/S，2025年Vless每天更新免费机场节点地址链接">「1月10日」最高速度21.7M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-49698.htm" title="分析fastcache和freecache(一)_在线工具">分析fastcache和freecache(一)_在线工具</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

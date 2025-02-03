@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>ASP.NET登出系统并清除Cookie_实用技巧_</title>
         <meta name="description" content="1.前端页面代码： 前端页面代码主要显示退出系统或者网站的可视化按钮代码,代码如下：（请忽略项目关键字：CPU）  &lt;ul class="nav navbar-nav navbar-right"" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-26874.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="ASP.NET登出系统并清除Cookie_实用技巧_" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/5b3210ba4c5be21f6ae6d11e3d6b6023.webp" />
+        <meta property="og:release_date" content="2024-12-17T10:13:10" />
+    <meta property="og:updated_time" content="2024-12-17T10:13:10" />
+        <meta property="og:description" content="1.前端页面代码： 前端页面代码主要显示退出系统或者网站的可视化按钮代码,代码如下：（请忽略项目关键字：CPU）  &lt;ul class="nav navbar-nav navbar-right"" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ASP.NET登出系统并清除Cookie_实用技巧_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -105,7 +134,7 @@
                   				  				  				<h3>1.前端页面代码：</h3> <p>前端页面代码主要显示退出系统或者网站的可视化按钮代码,代码如下：（请忽略项目关键字：CPU）</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;ul class="nav navbar-nav navbar-right"&gt;                                                      &lt;li class=""&gt;                                  &lt;a href="javascript:;"   class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;                                      &lt;img src="@Url.Content("~/assets/img/user2.png" alt="ASP.NET登出系统并清除Cookie_实用技巧_")" alt=""&gt;@CPU.UserProfile.User.UserID                                      &lt;span class="fa fa-angle-down"&gt;&lt;/span&gt;                                  &lt;/a&gt;                                  &lt;ul class="dropdown-menu dropdown-usermenu pull-right" style="width:35px"&gt;                                      &lt;li&gt;                                          @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "padding: 12px 0px;" }))                                          {                                              @Html.AntiForgeryToken()                                              &lt;a href="javascript:document.getElementById('logoutForm').submit()"  &gt;&lt;i class="fa fa-sign-out pull-right"&gt;&lt;/i&gt; Log Out&lt;/a&gt;                                          }                                      &lt;/li&gt;                                  &lt;/ul&gt;                              &lt;/li&gt;                              &lt;li class="hidden-xs"&gt;&lt;a&gt;&lt;span&gt;在线人数: @System.Web.HttpContext.Current.Application["OnLineUserCount"] 人&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;                                                      &lt;/ul&gt;</pre> </div> <h3>2.后台逻辑处理代码：</h3> <p>后台的代码，主要是对前台点击按钮的事件进行处理：退出系统和清除系统Cookie</p> <div class="ay1code"> <pre class="brush:csharp;">[HttpPost]          [AllowAnonymous]          [ValidateAntiForgeryToken]          public ActionResult LogOff()          {              FormsAuthentication.SignOut();//退出登录              System.Web.HttpContext.Current.Session.Abandon();//清理缓存              return RedirectToAction("Login", "Account");          }</pre> </div> <h3>3.界面效果：</h3> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220415/d92571f9bbc043151f2df57b87b86760.jpg"></p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-26412.htm">axios安装，配置及配合vue脚手架</a></p>
-                                        <p>下一个：<a href="/news/article-26875.htm">快递寄宠物怎么寄猫咪（如何快递宠物猫）</a></p>
+                                        <p>下一个：<a href="/news/article-28268.htm">动物多大打疫苗 动物多大打疫苗最好</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20416.htm" title="动物接种疫苗多少钱一次啊深圳市人民医院（动物疫苗接种时间）">动物接种疫苗多少钱一次啊深圳市人民医院（动物疫苗接种时间）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-vless-windows.htm" title="「10月14日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接">「10月14日」最高速度23M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-node-share-links.htm" title="「12月29日」最高速度21.8M/S，2024年Vless每天更新免费机场节点地址链接">「12月29日」最高速度21.8M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-node-subscribe-links.htm" title="「10月2日」最高速度19.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月2日」最高速度19.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-vless-node.htm" title="「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-node-subscribe-links.htm" title="「10月28日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接">「10月28日」最高速度20.8M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-node-share-links.htm" title="「12月23日」最高速度20M/S，2024年Vless每天更新免费机场节点地址链接">「12月23日」最高速度20M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-node-share.htm" title="「10月3日」最高速度21.9M/S，2024年Vless每天更新免费机场订阅节点链接">「10月3日」最高速度21.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-31096.htm" title="动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名">动物疫苗品牌排行榜 动物疫苗品牌排行榜前十名</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-latest-vless-node.htm" title="「12月5日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接">「12月5日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-24566.htm" title="c++语法拾遗，一些细节与特性">c++语法拾遗，一些细节与特性</a></li>
+                        <li class="py-2"><a href="/news/article-38291.htm" title="对称加解密算法的填充模式">对称加解密算法的填充模式</a></li>
+                        <li class="py-2"><a href="/news/article-39774.htm" title="兽用疫苗经营需要什么资质（兽用疫苗经营需要什么资质证书）">兽用疫苗经营需要什么资质（兽用疫苗经营需要什么资质证书）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-high-speed-nodes.htm" title="「1月1日」最高速度22.2M/S，2025年Vless每天更新免费机场节点地址链接">「1月1日」最高速度22.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-vless-node.htm" title="「11月16日」最高速度20.7M/S，2024年Vless每天更新免费机场订阅节点链接">「11月16日」最高速度20.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe-links.htm" title="「12月17日」最高速度21M/S，2024年Vless每天更新免费机场订阅节点链接">「12月17日」最高速度21M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21789.htm" title="动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）">动物疫苗价格表最新图片大全集下载（动物疫苗价格表最新图片大全集下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-vless-github.htm" title="「1月14日」最高速度18.3M/S，2025年Vless每天更新免费机场节点地址链接">「1月14日」最高速度18.3M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-vless-node-share.htm" title="「1月9日」最高速度18.7M/S，2025年Vless每天更新免费机场节点地址链接">「1月9日」最高速度18.7M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-33954.htm" title="Go_error处理及panic、recover使用的正确姿势">Go_error处理及panic、recover使用的正确姿势</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

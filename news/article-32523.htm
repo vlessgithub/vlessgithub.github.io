@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>springboot项目在启动时自动添加定时任务</title>
         <meta name="description" content="springboot项目在启动时自动添加定时任务    1、springboot项目的启动器类添加注解 2、动态添加定时任务   2-1、添加配置类   3、静态添加定时任务 4、cron表达式在线生" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-32523.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="springboot项目在启动时自动添加定时任务" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/7da15e4db52c99af2dbafefc09df5ebe.webp" />
+        <meta property="og:release_date" content="2024-12-29T05:23:25" />
+    <meta property="og:updated_time" content="2024-12-29T05:23:25" />
+        <meta property="og:description" content="springboot项目在启动时自动添加定时任务    1、springboot项目的启动器类添加注解 2、动态添加定时任务   2-1、添加配置类   3、静态添加定时任务 4、cron表达式在线生" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot项目在启动时自动添加定时任务">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-node-share-links.htm" title="「11月11日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接">「11月11日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-vless-node-github.htm" title="「12月13日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接">「12月13日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-vless-github.htm" title="「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接">「12月3日」最高速度21.7M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-29195.htm" title="动物疫苗经营许可证怎么申请领取的（动物疫苗审批）">动物疫苗经营许可证怎么申请领取的（动物疫苗审批）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-latest-vless-node.htm" title="「10月11日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「10月11日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-latest-vless-node.htm" title="「10月10日」最高速度18.4M/S，2024年Vless每天更新免费机场订阅节点链接">「10月10日」最高速度18.4M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-27804.htm" title="我们如何从MySQL表中获取特定行作为输出？">我们如何从MySQL表中获取特定行作为输出？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-node-subscribe.htm" title="「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-vless-github.htm" title="「10月13日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接">「10月13日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-vless-node.htm" title="「10月21日」最高速度22.2M/S，2024年Vless每天更新免费机场订阅节点链接">「10月21日」最高速度22.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-node-subscribe-links.htm" title="「12月10日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接">「12月10日」最高速度20.2M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-vless-node.htm" title="「12月31日」最高速度19M/S，2025年Vless每天更新免费机场节点地址链接">「12月31日」最高速度19M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-high-speed-nodes.htm" title="「11月5日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月5日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-18623.htm" title="宠物粮加工厂投资多少钱 宠物粮加工厂投资多少钱一个月">宠物粮加工厂投资多少钱 宠物粮加工厂投资多少钱一个月</a></li>
+                        <li class="py-2"><a href="/news/article-40268.htm" title="想寄猫怎么寄（想寄猫怎么寄快递）">想寄猫怎么寄（想寄猫怎么寄快递）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-today-vless-node.htm" title="「1月12日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接">「1月12日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-vless-node.htm" title="「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43742.htm" title="济南领养宠物的地方 济南领养宠物的地方有哪些">济南领养宠物的地方 济南领养宠物的地方有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-node-subscribe.htm" title="「1月5日」最高速度23M/S，2025年Vless每天更新免费机场节点地址链接">「1月5日」最高速度23M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-latest-vless-node.htm" title="「11月13日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月13日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

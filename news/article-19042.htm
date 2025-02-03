@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
 <!-- BEGIN HEAD -->
 
 <head>
@@ -8,8 +8,37 @@
     <title>MM32F0140 UART1硬件自动波特率校准功能的使用</title>
         <meta name="description" content="目录： 1.MM32F0140简介 2.UART自动波特率校准应用场景 3.MM32F0140 UART自动波特率校准原理简介 4.MM32F0140 UART1 NVIC硬件自动波特率配置以及初始化" />
         <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-19042.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="MM32F0140 UART1硬件自动波特率校准功能的使用" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/7343690252a881ac5c330e97db806f1b.webp" />
+        <meta property="og:release_date" content="2024-11-30T10:43:45" />
+    <meta property="og:updated_time" content="2024-11-30T10:43:45" />
+        <meta property="og:description" content="目录： 1.MM32F0140简介 2.UART自动波特率校准应用场景 3.MM32F0140 UART自动波特率校准原理简介 4.MM32F0140 UART1 NVIC硬件自动波特率配置以及初始化" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MM32F0140 UART1硬件自动波特率校准功能的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
     <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
@@ -115,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-31-vless-node.htm" title="「12月31日」最高速度19M/S，2025年Vless每天更新免费机场节点地址链接">「12月31日」最高速度19M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-vless-node-share.htm" title="「12月24日」最高速度19.7M/S，2024年Vless每天更新免费机场节点地址链接">「12月24日」最高速度19.7M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/news/article-20415.htm" title="太原领养狗狗的地方（太原哪里可以领养小狗）">太原领养狗狗的地方（太原哪里可以领养小狗）</a></li>
-                        <li class="py-2"><a href="/news/article-27804.htm" title="我们如何从MySQL表中获取特定行作为输出？">我们如何从MySQL表中获取特定行作为输出？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-latest-vless-node.htm" title="「12月5日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接">「12月5日」最高速度21.1M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-latest-vless-node.htm" title="「12月22日」最高速度21.6M/S，2024年Vless每天更新免费机场节点地址链接">「12月22日」最高速度21.6M/S，2024年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/news/article-29194.htm" title="宠物医院好评模板50字怎么写的（宠物医院好评语30字通用）">宠物医院好评模板50字怎么写的（宠物医院好评语30字通用）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-node-share.htm" title="「9月6日」最高速度20.9M/S，2024年Vless每天更新免费机场订阅节点链接">「9月6日」最高速度20.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-node-subscribe.htm" title="「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-vless-node-github.htm" title="「9月13日」最高速度20.5M/S，2024年Vless每天更新免费机场订阅节点链接">「9月13日」最高速度20.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39279.htm" title="URL编码及解码">URL编码及解码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-high-speed-nodes.htm" title="「11月28日」最高速度20M/S，2024年Vless每天更新免费机场订阅节点链接">「11月28日」最高速度20M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-vless-node.htm" title="「1月6日」最高速度20.3M/S，2025年Vless每天更新免费机场节点地址链接">「1月6日」最高速度20.3M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-39774.htm" title="兽用疫苗经营需要什么资质（兽用疫苗经营需要什么资质证书）">兽用疫苗经营需要什么资质（兽用疫苗经营需要什么资质证书）</a></li>
+                        <li class="py-2"><a href="/news/article-47687.htm" title="狗粮颗粒机视频教程（狗粮颗粒机视频教程全集）">狗粮颗粒机视频教程（狗粮颗粒机视频教程全集）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-node-subscribe-links.htm" title="「1月24日」最高速度22.2M/S，2025年Vless每天更新免费机场节点地址链接">「1月24日」最高速度22.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-vless-node.htm" title="「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接">「12月15日」最高速度20.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-latest-vless-node.htm" title="「11月24日」最高速度18.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月24日」最高速度18.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-40267.htm" title="兽用和人用针剂的区别是什么（兽用的针剂和人用的是一样的吗）">兽用和人用针剂的区别是什么（兽用的针剂和人用的是一样的吗）</a></li>
+                        <li class="py-2"><a href="/news/article-44735.htm" title="解决Qt设置QTextEdit行高的问题_C 语言">解决Qt设置QTextEdit行高的问题_C 语言</a></li>
                     </ul>
     </div>
 </div>
@@ -136,19 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
