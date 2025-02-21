@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+<!-- BEGIN HEAD -->
+
+<head>
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-58974.htm" />
+    <meta charset="utf-8" />
+    <title>骨架屏技术讲解以及如何在Vue中实现骨架屏</title>
+        <meta name="description" content="骨架屏技术讲解以及如何在Vue中实现骨架屏  写在前面 骨架屏是什么 如何实现（原理分析）   一个生动的例子   实现方式（具体实现）   方案一、在模版中来实现骨架屏 方案二、使用一个Base64" />
+        <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-58974.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="骨架屏技术讲解以及如何在Vue中实现骨架屏" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/cc36252a4b622e1e4d858d3a089430c9.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:34:51" />
+    <meta property="og:updated_time" content="2025-02-19T06:34:51" />
+        <meta property="og:description" content="骨架屏技术讲解以及如何在Vue中实现骨架屏  写在前面 骨架屏是什么 如何实现（原理分析）   一个生动的例子   实现方式（具体实现）   方案一、在模版中来实现骨架屏 方案二、使用一个Base64" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="骨架屏技术讲解以及如何在Vue中实现骨架屏">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/vlessgithub/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/vlessgithub/animate.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/vlessgithub/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/vlessgithub/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2HXTZV7HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2HXTZV7HY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- END HEAD -->
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a class="logo-wrap" href="/">
+                                                <span>Vless Github</span>
+                                                </a>
+                    </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block category">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h1 class="promo-block-title">骨架屏技术讲解以及如何在Vue中实现骨架屏</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-block-img-wrap">
+                        <img class="promo-block-img img-responsive" src="/assets/website/img/vlessgithub/mockup/avatar-01.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <div class="toc"> <h3>骨架屏技术讲解以及如何在Vue中实现骨架屏</h3> <ul> <li><a href="#_2" rel="nofollow">写在前面</a></li> <li><a href="#_9" rel="nofollow">骨架屏是什么</a></li> <li><a href="#_17" rel="nofollow">如何实现（原理分析）</a></li> <li> <ul> <li><a href="#_61" rel="nofollow">一个生动的例子</a></li> </ul> </li> <li><a href="#_79" rel="nofollow">实现方式（具体实现）</a></li> <li> <ul> <li><a href="#_81" rel="nofollow">方案一、在模版中来实现骨架屏</a></li> <li><a href="#Base64_87" rel="nofollow">方案二、使用一个Base64的图片来作为骨架屏</a></li> <li><a href="#_vue__92" rel="nofollow">方案三、使用 .vue 文件来完成骨架屏</a></li> <li><a href="#_275" rel="nofollow">方案四、自动生成并自动插入静态骨架屏</a></li> </ul> </li> </ul> </div> </h1> <p>现在的前端开发领域，都是前后端分离，前端框架主流的都是<code>SPA</code>，<code>MPA</code>；这就意味着，页面渲染以及等待的白屏时间，成为我们需要解决的问题点；而且大项目，这个问题尤为突出。</p> <p>webpack 可以实现按需加载，减小我们首屏需要加载的代码体积；再配合上 CDN 以及一些静态代码（框架，组件库等等…）缓存技术，可以很好的缓解这个加载渲染的时间过长的问题。</p> <p>但即便如此，首屏的加载依然还是存在这个加载以及渲染的等待时间问题；</p> </h1> <p>目前主流，常见的解决方案是使用<strong>骨架屏</strong>技术，包括很多原生的APP，在页面渲染时，也会使用骨架屏。（下图中，红圈中的部分，<strong>即为骨架屏在内容还没有出现之前的页面骨架填充，以免留白</strong>）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/cac7d9c791563e3ae33a0742c6815bba.jpg" alt="骨架屏技术讲解以及如何在Vue中实现骨架屏" width="280" align="center"/></p> </h1> <p>在 Vue 中，我们是通过<code>$mount</code> 实例方法去挂载 vm 的；我们来简单看一下 Vue 代码里面关于<code>$mount</code> 方法的实现：</p> <pre><code class="prism language-js"><span class="token keyword">const</span> mount<span class="token operator">=</span> Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$mount Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">$mount</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>   el<span class="token operator">?</span><span class="token punctuation">:</span> string<span class="token operator">|</span> Element<span class="token punctuation">,</span>   hydrating<span class="token operator">?</span><span class="token punctuation">:</span> boolean<span class="token punctuation">)</span><span class="token punctuation">:</span> Component<span class="token punctuation">{<!-- --></span>   el<span class="token operator">=</span> el<span class="token operator">&amp;&amp;</span><span class="token function">query</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token comment">/* istanbul ignore if */</span><span class="token keyword">if</span><span class="token punctuation">(</span>el<span class="token operator">===</span> document<span class="token punctuation">.</span>body<span class="token operator">||</span> el<span class="token operator">===</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span><span class="token operator">!==</span><span class="token string">'production'</span><span class="token operator">&amp;&amp;</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Do not mount Vue to &lt;html&gt; or &lt;body&gt; - mount to normal elements instead.`</span></span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token keyword">this</span><span class="token punctuation">}</span><span class="token keyword">const</span> options<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$options<span class="token comment">// resolve template/el and convert to render function</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>options<span class="token punctuation">.</span>render<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token keyword">return</span> mount<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> el<span class="token punctuation">,</span> hydrating<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p>我们可以看到：这段代码首先缓存了原型上的 $mount 方法，再重新定义该方法，我们先来分析这段代码。首先，它对 el 做了限制，Vue 不能挂载在 body、html 这样的根节点上。<font color="red">为什么？？</font></p> <p><strong>因为render生成的vNode，通过 $mount 方法，挂载在我们的定义的 DOM 元素上；这里的挂载是【替换】的意思。</strong></p> <p>默认情况下我们的模版<code>index.html</code> 里面有一个 id 为 app 的 div 元素。我们最终的应用程序代码会替换掉这个元素，也就是<code>&lt;div id="app"&gt;&lt;/div&gt;</code>；对，我们 Vue 渲染出来的内容是替换掉它，而不是插入在这个节点中。</p> <p>这也就是 Vue 不能挂载在 body、html 这样的根节点的原因。你总不能把 body、html 这样的元素节点替换掉把。</p> <blockquote> <p>知识点补充：<br /> 如果没有定义 render 方法，则会把 el 或者 template 字符串转换成 render 方法。这里我们要牢记，在 Vue 2.0 版本中，所有 Vue 的组件的渲染最终都需要 render 方法，无论我们是用单文件 .vue 方式开发组件，还是写了 el 或者 template 属性，最终都会转换成 render 方法，那么这个过程是 Vue 的一个“在线编译”的过程，它是调用 compileToFunctions 方法实现的。最后，调用原先原型上的 $mount 方法挂载。</p> </blockquote> <p>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ustbhuangyi.github.io/vue-analysis/v2/data-driven/mounted.html#vue-%E5%AE%9E%E4%BE%8B%E6%8C%82%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0"  rel="nofollow">Vue 实例挂载的实现</a></p> <h2><a id="_61" rel="nofollow"></a>一个生动的例子</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/19414e51786b1bfdc6d92648eab0699b.jpg" alt="骨架屏技术讲解以及如何在Vue中实现骨架屏"></p> <p>我们模版(index.html)里面的内容是这样的：</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token style-attr language-css"><span class="token attr-name"><span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>你好<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!-- built files will be auto injected --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span></code></pre> <p>模版里面的挂载点是<code>div#app</code>，<code>App.vue</code> 里面的根节点是<code>div#app-two</code>，渲染完成以后，页面上的<code>div#app</code> 就变成了<code>div#app-two</code>。</p> <p><font color="red">那么，这里分析总结出来的最重要的一点就是：Vue 的 $mount 方法挂载元素，采用的是【替换】模版中的挂载点 这样的方法，知道了这个知识点以后，我们要实现骨架屏，就有了很好的实现思路了。</font></p> </h1> <h2><a id="_81" rel="nofollow"></a>方案一、在模版中来实现骨架屏</h2> <blockquote> <p>思路：在 index.html 中的 div#app 中来实现骨架屏，程序渲染后就会替换掉 index.html 里面的 div#app 骨架屏内容；</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/7d2cbc954de70af365f24611ff974699.jpg" alt="骨架屏技术讲解以及如何在Vue中实现骨架屏"><br /> ok，做完了；你觉得我这个骨架屏做的怎么样。</p> <h2><a id="Base64_87" rel="nofollow"></a>方案二、使用一个Base64的图片来作为骨架屏</h2> <p>使用图片作为骨架屏； 简单暴力，让UI同学花点功夫吧；小米商城的移动端页面采用的就是这个方法，它是使用了一个Base64的图片来作为骨架屏。</p> <p>按照方案一的方案，将这个 Base64 的图片写在我们的<code>index.html</code> 模块中的<code>div#app</code> 里面。</p> <h2><a id="_vue__92" rel="nofollow"></a>方案三、使用 .vue 文件来完成骨架屏</h2> <blockquote> <p>我们可能不希望在默认的模版(index.html)上来进行代码的coding；想在方案一的基础上，将骨架屏的代码抽离出来，使用一个 .vue 文件来 coding，易于维护。</p> </blockquote> <p>1、我们在<code>src</code> 下建一个<code>skeleton</code> 目录，在里面创建两个文件（<code>skeleton.vue</code>、<code>skeleton.entry.js</code>）；<code>skeleton.vue</code> 就是我们的骨架屏页面的代码，<code>skeleton.entry.js</code> 是编译<code>skeleton.vue</code> 的入口文件，类似于我们 Vue 项目中的<code>main.js</code> 文件；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/fc358a6186c70a44e53a39f9ac835460.jpg" alt="骨架屏技术讲解以及如何在Vue中实现骨架屏" width="200"/></p> <pre><code class="prism language-js"><span class="token comment">// skeleton.entry.js</span><span class="token keyword">import</span> Vue<span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> Skeleton<span class="token keyword">from</span><span class="token string">'./skeleton.vue'</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token keyword">new</span><span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 根实例简单的渲染应用程序组件</span>   render<span class="token punctuation">:</span> h<span class="token operator">=&gt;</span><span class="token function">h</span><span class="token punctuation">(</span>Skeleton<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <pre><code class="prism language-html"><span class="token comment">&lt;!-- skeleton.vue --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>skeleton page<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>骨架屏<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style language-css"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span></code></pre> <p>2、我们还需要在新建一个<code>webpack.skeleton.conf.js</code> 文件，以专门用来进行骨架屏的构建（这个文件放在哪里无所谓，可以放在根目录下，也可以放在<code>build</code> 目录中）。这是一个 webpack 的配置文件，配合使用<code>vue-server-renderer</code> 将我们的<code>skeleton.vue</code> 文件内容构建为单个的 json 格式的文件（这是 Vue SSR 渲染的策略）</p> <pre><code class="prism language-js"><span class="token comment">// webpack.skeleton.conf.js</span><span class="token string">'use strict'</span><span class="token keyword">const</span> path<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token keyword">const</span> nodeExternals<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-node-externals'</span><span class="token punctuation">)</span><span class="token keyword">const</span> VueSSRServerPlugin<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'vue-server-renderer/server-plugin'</span><span class="token punctuation">)</span>  module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   target<span class="token punctuation">:</span><span class="token string">'node'</span><span class="token punctuation">,</span>   devtool<span class="token punctuation">:</span><span class="token string">'#source-map'</span><span class="token punctuation">,</span>   entry<span class="token punctuation">:</span><span class="token string">'./src/skeleton/skeleton.entry.js'</span><span class="token punctuation">,</span>   output<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>     path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>     publicPath<span class="token punctuation">:</span><span class="token string">'/dist/'</span><span class="token punctuation">,</span>     filename<span class="token punctuation">:</span><span class="token string">'[name].js'</span><span class="token punctuation">,</span>     libraryTarget<span class="token punctuation">:</span><span class="token string">'commonjs2'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   module<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>     noParse<span class="token punctuation">:</span><span class="token regex">/es6-promise\.js$/</span><span class="token punctuation">,</span><span class="token comment">// avoid webpack shimming process</span>     rules<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>         test<span class="token punctuation">:</span><span class="token regex">/\.vue$/</span><span class="token punctuation">,</span>         loader<span class="token punctuation">:</span><span class="token string">'vue-loader'</span><span class="token punctuation">,</span>         options<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>           compilerOptions<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>             preserveWhitespace<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>         test<span class="token punctuation">:</span><span class="token regex">/\.css$/</span><span class="token punctuation">,</span>         use<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'vue-style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   performance<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>     hints<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   externals<span class="token punctuation">:</span><span class="token function">nodeExternals</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token comment">// do not externalize CSS files in case we need to import it from a dep</span>     whitelist<span class="token punctuation">:</span><span class="token regex">/\.css$/</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   plugins<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token comment">// 这是将服务器的整个输出构建为单个 JSON 文件的插件。</span><span class="token comment">// 默认文件名为 `vue-ssr-server-bundle.json`</span><span class="token keyword">new</span><span class="token class-name">VueSSRServerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       filename<span class="token punctuation">:</span><span class="token string">'skeleton.json'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre> <p>3、写完<code>skeleton.vue</code> 的内容以后，使用<code>webpack-cli</code> 运行这个<code>webpack.skeleton.conf.js</code> 配置文件。</p> <pre><code class="prism language-json"><span class="token comment">// package.json</span><span class="token string">"skeleton"</span><span class="token punctuation">:</span><span class="token string">"webpack --progress --config build/webpack.skeleton.conf.js"</span></code></pre> <p>然后运行：</p> <pre><code class="prism language-bash"><span class="token function">npm</span> i webpack-cli@3.3.10 -D<span class="token function">npm</span> run skeleton</code></pre> <p>就会在<code>dist</code> 文件夹中生成一个<code>skeleton.json</code> 文件。</p> <p>4、将<code>skeleton.json</code> 内容插入到模版文件<code>index.html</code> 中。（在根目录下创建一个<code>skeleton.js</code> 文件）</p> <pre><code class="prism language-js"><span class="token comment">// skeleton.js</span><span class="token keyword">const</span> fs<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> resolve<span class="token punctuation">}</span><span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> createBundleRenderer<span class="token punctuation">}</span><span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'vue-server-renderer'</span><span class="token punctuation">)</span><span class="token keyword">function</span><span class="token function">createRenderer</span><span class="token punctuation">(</span>bundle<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token function">createBundleRenderer</span><span class="token punctuation">(</span>bundle<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>options<span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token comment">// recommended for performance</span><span class="token comment">// runInNewContext: false</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token keyword">const</span><span class="token function-variable function">handleError</span><span class="token operator">=</span> err<span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>   console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`error during render :</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>req<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>   console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>stack<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token keyword">const</span> bundle<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./dist/skeleton.json'</span><span class="token punctuation">)</span><span class="token keyword">const</span> templatePath<span class="token operator">=</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'./index.html'</span><span class="token punctuation">)</span><span class="token keyword">const</span> template<span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>templatePath<span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token keyword">const</span> renderer<span class="token operator">=</span><span class="token function">createRenderer</span><span class="token punctuation">(</span>bundle<span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>   template<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// console.log(renderer)</span><span class="token comment">/**  * 说明：  * 默认的index.html中包含&lt;%= BASE_URL %&gt;的插值语法  * 我们不在生成骨架屏这一步改变模板中的这个插值  * 因为这个插值会在项目构建时完成  * 但是如果模板中有这个插值语法，而我们在vue-server-renderder中使用这个模板，而不传值的话，是会报错的  * 所以，我们去掉模板中的插值，而使用这个传参的方式，再将这两个插值原模原样返回到模板中  *   * 文档： https://cli.vuejs.org/zh/guide/html-and-static-assets.html#%E6%8F%92%E5%80%BC  */</span><span class="token keyword">const</span> context<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   title<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token comment">// default title</span>   meta<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`&lt;meta name="theme-color" content="#4285f4"&gt;     &lt;link  href="&lt;%= BASE_URL %&gt;favicon.ico"&gt;     &lt;link  href="&lt;%= BASE_URL %&gt;css/reset.css"&gt;`</span></span><span class="token punctuation">}</span>  renderer<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token function">handleError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">}</span>   fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'./index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> html<span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p>5、模版 index.html 加上插槽注解<br /><font color="red">这里需要注意的是：index.html 中的 div#app 中要加一个注解插槽，<code>&lt;!--vue-ssr-outlet--&gt;</code> 这个是必须的，Vue SSR 文档中有说这个。这个注解是必须的，请注意！</font></p> <pre><code class="prism language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span><span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width,initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>vue-for-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--vue-ssr-outlet--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!-- built files will be auto injected --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre> <p>参考连接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ssr.vuejs.org/zh/guide/#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF"  rel="nofollow">https://ssr.vuejs.org/zh/guide/#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF</a></p> <p>6、执行</p> <pre><code class="prism language-bash">node skeleton.js</code></pre> <p>执行成功后，模版<code>index.html</code> 中的<code>div#app</code> 中的内容就会变成我们的骨架屏代码；</p> <p>7、看一下效果<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/19fdf33383622e37dc4ee367d6e489d6.jpg" alt="骨架屏技术讲解以及如何在Vue中实现骨架屏"><br /> 这个骨架屏，你觉得效果如何？</p> <p>线上可以看到效果的例子也是有的：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://neveryu.github.io/map-chart/index.html"  rel="nofollow">map-chart</a>；记得选择，浏览器 -&gt; network -&gt; slow 3G 模式来预览 骨架屏效果。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/c1e9e51071a5b10a1a9d312805c8b087.jpg" alt="骨架屏技术讲解以及如何在Vue中实现骨架屏" width="320"/></p> <p><font color="red">在方案三中，还涉及到了 Vue SSR 的内容，关于 SSR 的知识的学习，可以参考我之前写的一个教程：</font><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Neveryu/vue-ssr-lessons"  rel="nofollow">https://github.com/Neveryu/vue-ssr-lessons</a></p> <h2><a id="_275" rel="nofollow"></a>方案四、自动生成并自动插入静态骨架屏</h2> <p>饿了么开源的插件<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/ElemeFE/page-skeleton-webpack-plugin/blob/master/docs/i18n/zh_cn.md"  rel="nofollow">page-skeleton-webpack-plugin</a> ，它根据项目中不同的路由页面生成相应的骨架屏页面，并将骨架屏页面通过 webpack 打包到对应的静态路由页面中，不过要注意的是这个插件目前只支持 history 方式的路由，不支持 hash 方式，且目前只支持首页的骨架屏，并没有组件级的局部骨架屏实现，作者说以后会有计划实现（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/ElemeFE/page-skeleton-webpack-plugin/issues/9"  rel="nofollow">issue9</a>）。</p> <p>另外还有个插件<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lavas-project/vue-skeleton-webpack-plugin"  rel="nofollow">vue-skeleton-webpack-plugin</a>，它将插入骨架屏的方式由手动改为自动，原理在构建时使用 Vue 预渲染功能，将骨架屏组件的渲染结果 HTML 片段插入 HTML 页面模版的挂载点中，将样式内联到 head 标签中。这个插件可以给单页面的不同路由设置不同的骨架屏，也可以给多页面设置，同时为了开发时调试方便，会将骨架屏作为路由写入 router 中，可谓是相当体贴了。</p> <p></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58556.htm">动物防疫计划表怎么写图片（动物防疫计划的编制）</a></p>
+                                        <p>下一个：<a href="/news/article-58975.htm">让猫挠了出了一点血有事吗会传染吗（让猫挠了出血用打疫苗吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-50733.htm" title="宠物领养须知内容大全视频（宠物领养中心领养条件是什么）">宠物领养须知内容大全视频（宠物领养中心领养条件是什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-node-share-links.htm" title="「11月11日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接">「11月11日」最高速度19.9M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-25479.htm" title="Go单体服务开发最佳实践">Go单体服务开发最佳实践</a></li>
+                        <li class="py-2"><a href="/news/article-33478.htm" title="宠物粮食生产厂家（国内宠物粮食十大厂家）">宠物粮食生产厂家（国内宠物粮食十大厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-vless-node-github.htm" title="「12月13日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接">「12月13日」最高速度19.5M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-node-subscribe.htm" title="「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接">「11月27日」最高速度21.6M/S，2024年Vless每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-25016.htm" title="宠物打完疫苗观察多久（宠物打完疫苗观察多久出结果）">宠物打完疫苗观察多久（宠物打完疫苗观察多久出结果）</a></li>
+                        <li class="py-2"><a href="/news/article-34425.htm" title="自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）">自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）</a></li>
+                        <li class="py-2"><a href="/news/article-48181.htm" title="养猫的人容易得15种病怎么预防传染给猫（养猫容易感染什么病毒）">养猫的人容易得15种病怎么预防传染给猫（养猫容易感染什么病毒）</a></li>
+                        <li class="py-2"><a href="/news/article-47199.htm" title="torch报错TypeError: can&#8217;t convert CUDA tensor to numpy. Use Tensor.cpu() to copy the tensor">torch报错TypeError: can&#8217;t convert CUDA tensor to numpy. Use Tensor.cpu() to copy the tensor</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/vlessgithub/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/swiper.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+<!-- END BODY -->
+
+</html>
