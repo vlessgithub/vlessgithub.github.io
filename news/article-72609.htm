@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+<!-- BEGIN HEAD -->
+
+<head>
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-72609.htm" />
+    <meta charset="utf-8" />
+    <title>从Paxos到ZooKeeper-一致性协议之2PC、3PC</title>
+        <meta name="description" content="一、2PC &nbsp;&nbsp;&nbsp;&nbsp;在上一节ZooKeeper-分布式架构中有讲到，分布式系统架构设计中往往是在系统可用性和数据一致性之间进行反复权衡，于是产生了系列一致性协议" />
+        <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-72609.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="从Paxos到ZooKeeper-一致性协议之2PC、3PC" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/cc36252a4b622e1e4d858d3a089430c9.webp" />
+        <meta property="og:release_date" content="2025-03-13T09:20:02" />
+    <meta property="og:updated_time" content="2025-03-13T09:20:02" />
+        <meta property="og:description" content="一、2PC &nbsp;&nbsp;&nbsp;&nbsp;在上一节ZooKeeper-分布式架构中有讲到，分布式系统架构设计中往往是在系统可用性和数据一致性之间进行反复权衡，于是产生了系列一致性协议" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="从Paxos到ZooKeeper-一致性协议之2PC、3PC">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/vlessgithub/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/vlessgithub/animate.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/vlessgithub/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/vlessgithub/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2HXTZV7HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2HXTZV7HY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- END HEAD -->
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a class="logo-wrap" href="/">
+                                                <span>Vless Github</span>
+                                                </a>
+                    </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block category">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h1 class="promo-block-title">从Paxos到ZooKeeper-一致性协议之2PC、3PC</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-block-img-wrap">
+                        <img class="promo-block-img img-responsive" src="/assets/website/img/vlessgithub/mockup/avatar-01.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2 id="一2pc"><strong>一、2PC</strong></h2> <p>&nbsp;&nbsp;&nbsp;&nbsp;在上一节<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/qq_29999343/article/details/78253146"  rel="nofollow">ZooKeeper-分布式架构</a>中有讲到，分布式系统架构设计中往往是在系统可用性和数据一致性之间进行反复权衡，于是产生了系列一致性协议</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;在分布式系统中，每个节点都能明确知道自身事务操作结果，但无法直接获取到其他分布式节点的操作结果。所以当一个事务要横跨多个节点时，为了保证事务处理的ACID特性而引入了协调者组件来统一调度所有分布式节点（参与者）的执行逻辑，协调者调度参与者的行为并最终决定是否把参与者的事务进行真正的提交</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;2PC（Two-Phase Commit 两阶段提交）：完成参与者的协调，统一决定事务的提交或回滚，使基于分布式系统架构下的所有节点在进行事务处理过程中能够保持原子性和数据一致性</p> <p><strong>1. 协议说明</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;二阶段提交协议将事物的提交过程分为两个阶段处理</p> <p>（1）提交事务请求</p> <blockquote> <p>事务询问：协调者向所有参与者发送事务内容，询问是否可以执行事务提交操作，等待响应<br /> 执行事务：参与者节点执行事务操作，并记录Undo和Redo信息到事务日志<br /> 参与者响应：若参与者成功执行事务，则向协调者反馈Yes响应，否则反馈No响应</p> </blockquote> <p>（2）执行事务提交-提交</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;如果所有参与者的反馈都是Yes响应，那么执行事务提交</p> <blockquote> <p>发送提交请求：协调者向所有参与者发送Commit请求<br /> 事务提交：参与者接受到Commit请求后执行事务提交操作并释放占用的事务资源<br /> 反馈事务提交结果：参与者完成事务提交后向协调者发送Ack消息<br /> 完成事务：协调者收到所有参与者的Ack响应后，完成事务提交</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/1396c76dc3c1dcc58671d13fe91fac07.jpg" alt="从Paxos到ZooKeeper-一致性协议之2PC、3PC"></p> <p>（3）执行事务提交-中断</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;如果任何一个参与者返回了N响应或者协调者等待超时后就会中断事务</p> <blockquote> <p>发送回滚请求：协调者向所有参与者发送Rollback请求<br /> 事务回滚：参与者受到请求后通过Undo信息执行事务回滚操作并释放占用的事务资源<br /> 反馈事务回滚结果：参与者回滚事务后向协调者发送Ack消息<br /> 中断事务：协调者接收到所有参与者的Ack响应后，完成事务中断</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/7324b94c1c99b9293479554845fe8bd0.jpg" alt="从Paxos到ZooKeeper-一致性协议之2PC、3PC"></p> <p><strong>2. 优缺点</strong></p> <p>（1）优点</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;原理简单，实现方便</p> <p>（2）缺点</p> <blockquote> <p><strong>同步阻塞：</strong>在阶段二事务提交过程中，所有参与者的操作逻辑都处于阻塞状态，等待其他参与者响应，协调者请求<br /><strong>单点问题：</strong>一旦协调者出现问题，阶段二提交流程无法运转，并且参与者会一直处于锁定事务资源的状态，无法继续事务操作<br /><strong>数据不一致：</strong>当协调者向所有参与者发送了Commit请求后局部网络异常或协调者半路出错导致只有部分参与者收到Commit请求，造成系统出现数据不一致<br /><strong>太过保守：</strong>任何一个参与节点的失败使得协调者无法获取所有参与者的响应信息都会导致整个事务的失败</p> </blockquote> <h2 id="二3pc"><strong>二、3PC</strong></h2> <p>&nbsp;&nbsp;&nbsp;&nbsp;3PC（Three-Phase Commit 三阶段提交）将二阶段提交的提交事务请求过程一分为二，形成CanCommit、PreCommit、doCommit三个阶段</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/f2c3ff1cc0fa91c47865482e0b3a95a9.jpg" alt="从Paxos到ZooKeeper-一致性协议之2PC、3PC"></p> <p><strong>1.协议说明</strong></p> <p>（1）CanCommit</p> <blockquote> <p>事务询问：协调者向所有参与者发送包含事务内容的CanCommit请求，询问是否可以执行事务提交操作，等待响应<br /> 参与者响应：参与者接收到CanCommit请求后判断自身能够顺利执行事务，能则返回Yes响应并进入预备状态，否则返回No响应</p> </blockquote> <p>（2）PreCommit</p> <ul> <li> <p>执行事务预提交</p> <p>如果所有参与者反馈都为Yes响应，则执行事务预提交</p> <blockquote> <p>发送预提交请求：协调者向所有参与者节点发出PreCommit请求，并进入Prepared阶段<br /> 事务预提交：参与者接收到PreCommit请求后执行事务操作，并记录Undo和Redo信息到事务日志中<br /> 参与者响应事务执行结果：若参与者成功执行事务后则返回Ack响应给协调者，等待最终命令</p> </blockquote> </li> <li> <p>中断事务</p> <p>若任何一个参与者反馈了No响应或者协调者等待超时则中断事务</p> <blockquote> <p>发送中断请求：协调者向所有参与者节点发出Abort请求<br /> 中断事务：无论收到Abort请求或者等待协调者请求超时，参与者都会中断事务</p> </blockquote> </li> </ul> <p>（3）DoCommit</p> <ul> <li> <p>执行提交</p> <blockquote> <p>发送提交请求：当协调者收到所有参与者反馈的Ack响应，向所有参与者发送DoCommit请求，从预提交状态转到提交状态<br /> 事务提交：参与者接收到DoCommit请求后，正式执行事务提交操作，并释放占用的事务资源<br /> 反馈事务提交结果：参与者完成事务提交后向协调者发送Ack消息<br /> 完成事务：协调者接受到所有参与者反馈的Ack响应后，完成事务</p> </blockquote> </li> <li> <p>中断事务</p> <blockquote> <p>发送中断请求：协调者向所有参与者节点发出Abort请求<br /> 事务回滚：参与者接收到Abort请求后，利用Undo信息执行事务回滚操作，并释放占用的事务资源<br /> 反馈事务回滚结果：参与者完成事务回滚后向协调者发送Ack消息<br /> 中断事务：协调者接收到所有参与者反馈的Ack响应后，中断事务</p> </blockquote> </li> </ul> <p>&nbsp;&nbsp;&nbsp;&nbsp;第三阶段中若参与者无法及时接收到协调者发送的DoCommit或者Abort请求都会在等待超时后继续进行事务提交</p> <p><strong>2. 优缺点</strong></p> <p>（1）优点</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;降低参与者的阻塞范围，能够在出现单点故障后继续达成一致</p> <p>（2）缺点</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;接受者接收到PreCommit消息后，如果出现网络分区导致协调者和参与者无法正常通信，这时参与者仍会进行事务提交，造成数据的不一致</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71950.htm">上海宠物美容师多少钱一个月（上海宠物美容师多少钱一个月啊）</a></p>
+                                        <p>下一个：<a href="/news/article-72610.htm">vue项目打包时踩的坑</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-today-vless-node.htm" title="「2月25日」最高速度21.3M/S，2025年Vless每天更新免费机场节点地址链接">「2月25日」最高速度21.3M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-58974.htm" title="骨架屏技术讲解以及如何在Vue中实现骨架屏">骨架屏技术讲解以及如何在Vue中实现骨架屏</a></li>
+                        <li class="py-2"><a href="/news/article-55022.htm" title="Vue的自定义拖动">Vue的自定义拖动</a></li>
+                        <li class="py-2"><a href="/news/article-68042.htm" title="MySQL系列复习（9）分组查询（group by、having）">MySQL系列复习（9）分组查询（group by、having）</a></li>
+                        <li class="py-2"><a href="/news/article-60124.htm" title="动物医院大众点评100字通用评论怎么写的 动物医院大众点评100字通用评论怎么写的啊">动物医院大众点评100字通用评论怎么写的 动物医院大众点评100字通用评论怎么写的啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-vless-node.htm" title="「2月12日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接">「2月12日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-38291.htm" title="对称加解密算法的填充模式">对称加解密算法的填充模式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-vless-node.htm" title="「1月6日」最高速度20.3M/S，2025年Vless每天更新免费机场节点地址链接">「1月6日」最高速度20.3M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-40267.htm" title="兽用和人用针剂的区别是什么（兽用的针剂和人用的是一样的吗）">兽用和人用针剂的区别是什么（兽用的针剂和人用的是一样的吗）</a></li>
+                        <li class="py-2"><a href="/news/article-63695.htm" title="让猫挠了轻微出血,打几针?（让猫挠了轻微出血多久***）">让猫挠了轻微出血,打几针?（让猫挠了轻微出血多久***）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/vlessgithub/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/swiper.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+<!-- END BODY -->
+
+</html>
