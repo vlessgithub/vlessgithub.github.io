@@ -133,6 +133,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <ol> <li><strong>vue项目打包后页面出现空白页面</strong><br /> 在config文件夹下index.js中：<br /> dev对象中的assetsPublicPath修改为’./’<br /> build对象中的assetsPublicPath修改为’./’<br /> 在build文件中，webpack.prod.conf.js 第25行左右 有一个对象为 output,在这里面增加一行代码publicPath:’./’</li> </ol> <pre><code>output: {     //在这里加一行代码       publicPath:'./',     path: config.build.assetsRoot,     filename: utils.assetsPath('js/[name].[chunkhash].js'),     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')   },</code></pre> <p>在utils.js中， 第47行左右 有一个if判断为 if (options.extract),在这里面增加一行代码（是为了图片加载）publicPath:’…/…/’</p> <pre><code> if (options.extract) {       return ExtractTextPlugin.extract({         publicPath:'../../',         use: loaders,         fallback: 'vue-style-loader'       })     }</code></pre> <p>**注意：**如果修改完还是白页，看route.js的mode是不是history模式，history模式可以去掉#，但是需要后端设置配合使用。删除mode定义，使用默认模式即可。<br /> 2.<strong>vue项目打包时报错</strong><br /> 错误：Cannot read property ‘matched’ of undefined"<br /> 错误原因：在new Vue()的实例中对路由名称的识别是唯一的，所以路由定义需要修改为【router】</p> <pre><code>const router = new VueRouter({   routes: [     {       path: '/apple',       component: Apple     },     {       path: '/banana',       component: Banana     }   ] }) new Vue({   el: '#app',   router,   components: { App },   template: '&lt;App/&gt;' })</code></pre> <p><strong>3. vue项目打包后跨域请求报错</strong><br /> 开发环境：</p> <pre><code>// config文件夹下的index.js中dev中添加 proxyTable: {       //做一个接口的代理       '/pay_api': {   // 拦截转发路径，名字可以任意取，注意前面斜杠；         target: 'http://ip地址:端口',   //代理目标网址；         changeOrigin: true,   //允许跨域         pathRewrite: {           '^/pay_api': ''   //重写路径         }       }     }</code></pre> <pre><code>this.$axios.post('/pay_api/接口',{ 	fileName: fileName  // 请求参数 	}).then((data) =&gt; { 		//请求完成 	})</code></pre> <p>生产环境：（跨域由后端解决）</p> <pre><code>import axios from 'axios' Vue.prototype.$axios = axios; axios.defaults.baseURL = "http://ip地址:端口"</code></pre> <pre><code>this.$axios.post('接口',{ 	fileName: fileName  // 请求参数 	}).then((data) =&gt; { 		//请求完成 	})</code></pre> <pre><code>import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import org.springframework.web.cors.CorsConfiguration; import org.springframework.web.cors.UrlBasedCorsConfigurationSource; import org.springframework.web.filter.CorsFilter;  @Configuration public class CorsConfig {     @Bean     public CorsFilter corsFilter() {         //1.添加CORS配置信息         CorsConfiguration config = new CorsConfiguration();         //1) 允许的域,不要写*，否则cookie就无法使用了         config.addAllowedOrigin("*");         //2) 是否发送Cookie信息         config.setAllowCredentials(true);         //3) 允许的请求方式GET POST等         config.addAllowedMethod("*");         // 4）允许的头信息         config.addAllowedHeader("*");         config.setMaxAge(3600L);          //2.添加映射路径，我们拦截一切请求         UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();         configSource.registerCorsConfiguration("/**", config);          //3.返回新的CorsFilter.         return new CorsFilter(configSource);     } }</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-72609.htm">从Paxos到ZooKeeper-一致性协议之2PC、3PC</a></p>
+                                        <p>下一个：<a href="/news/article-73271.htm">动物疫苗现状分析报告模板（动物疫苗市场分析）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -142,16 +143,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-46221.htm" title="java实现机械表">java实现机械表</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-9-vless-node-share.htm" title="「1月9日」最高速度18.7M/S，2025年Vless每天更新免费机场节点地址链接">「1月9日」最高速度18.7M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/news/article-63694.htm" title="Typescript和Javascript之间的区别">Typescript和Javascript之间的区别</a></li>
-                        <li class="py-2"><a href="/news/article-39280.htm" title="动物疫苗的使用方法及注意事项视频教程大全（动物疫苗知识）">动物疫苗的使用方法及注意事项视频教程大全（动物疫苗知识）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-12-vless-node.htm" title="「2月12日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接">「2月12日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
-                        <li class="py-2"><a href="/news/article-71950.htm" title="上海宠物美容师多少钱一个月（上海宠物美容师多少钱一个月啊）">上海宠物美容师多少钱一个月（上海宠物美容师多少钱一个月啊）</a></li>
-                        <li class="py-2"><a href="/news/article-37805.htm" title="Nginx离线安装方法详解">Nginx离线安装方法详解</a></li>
-                        <li class="py-2"><a href="/news/article-58555.htm" title="猫咪疫苗一共打几针多少钱一针（猫咪疫苗一共打几针多少钱一针啊）">猫咪疫苗一共打几针多少钱一针（猫咪疫苗一共打几针多少钱一针啊）</a></li>
-                        <li class="py-2"><a href="/news/article-70629.htm" title="宠物疫苗可以自己打吗现在多少钱（宠物疫苗可以自己打嘛）">宠物疫苗可以自己打吗现在多少钱（宠物疫苗可以自己打嘛）</a></li>
-                        <li class="py-2"><a href="/news/article-44734.htm" title="Python- *args 的用法">Python- *args 的用法</a></li>
+                        <li class="py-2"><a href="/news/article-53380.htm" title="加盟店最火爆的项目小吃（适合小县城开的加盟店）">加盟店最火爆的项目小吃（适合小县城开的加盟店）</a></li>
+                        <li class="py-2"><a href="/news/article-49186.htm" title="动物医院名字有创意两个字的吗图片高清（动物医院名字有创意两个字的吗图片高清大图）">动物医院名字有创意两个字的吗图片高清（动物医院名字有创意两个字的吗图片高清大图）</a></li>
+                        <li class="py-2"><a href="/news/article-57264.htm" title="济南宠物免费赠送信息在哪里（济南宠物免费赠送信息在哪里查看）">济南宠物免费赠送信息在哪里（济南宠物免费赠送信息在哪里查看）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-today-vless-node.htm" title="「1月12日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接">「1月12日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-58556.htm" title="动物防疫计划表怎么写图片（动物防疫计划的编制）">动物防疫计划表怎么写图片（动物防疫计划的编制）</a></li>
+                        <li class="py-2"><a href="/news/article-57262.htm" title="宠物粮进货渠道有哪些呢（宠物粮市场销售渠道）">宠物粮进货渠道有哪些呢（宠物粮市场销售渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-free-node-subscribe.htm" title="「3月1日」最高速度21.2M/S，2025年Vless每天更新免费机场节点地址链接">「3月1日」最高速度21.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-41256.htm" title="为MySQL创建高性能索引_Mysql_">为MySQL创建高性能索引_Mysql_</a></li>
+                        <li class="py-2"><a href="/news/article-55575.htm" title="宠物领养证办理需要什么条件和手续费（宠物领养证如何办理）">宠物领养证办理需要什么条件和手续费（宠物领养证如何办理）</a></li>
+                        <li class="py-2"><a href="/news/article-68684.htm" title="南京宠物狗领养中心地址查询电话（南京有没有宠物领养中心）">南京宠物狗领养中心地址查询电话（南京有没有宠物领养中心）</a></li>
                     </ul>
     </div>
 </div>
@@ -163,7 +164,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
