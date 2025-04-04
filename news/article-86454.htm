@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+<!-- BEGIN HEAD -->
+
+<head>
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-86454.htm" />
+    <meta charset="utf-8" />
+    <title>node.js &#8211; http、模块化、npm</title>
+        <meta name="description" content="今天是node学习的第二天，其实越往后面学越感觉有点熟悉的味道了，光针对于node来说哈，为什么呢，因为我之前学过一点云计算的东西，当时感觉没什么用搞了下服务器客户端这些，没想到这里还能用一用，至少看" />
+        <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-86454.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="node.js &#8211; http、模块化、npm" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/0c21a37d2cfcc32c25d7266e37021ef1.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:42:04" />
+    <meta property="og:updated_time" content="2025-04-02T07:42:04" />
+        <meta property="og:description" content="今天是node学习的第二天，其实越往后面学越感觉有点熟悉的味道了，光针对于node来说哈，为什么呢，因为我之前学过一点云计算的东西，当时感觉没什么用搞了下服务器客户端这些，没想到这里还能用一用，至少看" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="node.js &#8211; http、模块化、npm">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/vlessgithub/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/vlessgithub/animate.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/vlessgithub/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/vlessgithub/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2HXTZV7HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2HXTZV7HY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- END HEAD -->
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a class="logo-wrap" href="/">
+                                                <span>Vless Github</span>
+                                                </a>
+                    </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block category">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h1 class="promo-block-title">node.js &#8211; http、模块化、npm</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-block-img-wrap">
+                        <img class="promo-block-img img-responsive" src="/assets/website/img/vlessgithub/mockup/avatar-01.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>今天是node学习的第二天，其实越往后面学越感觉有点熟悉的味道了，光针对于node来说哈，为什么呢，因为我之前学过一点云计算的东西，当时感觉没什么用搞了下服务器客户端这些，没想到这里还能用一用，至少看到服务器这些概念一点不陌生，看到npm一点不奇怪，我当时用的都是yum。</p> <p>1.</p> <p>我们今天先看到http模块，也是node里面的第一大模块，内置模块的内容，http是创建web服务器的模块，在前端当中，不需要iis、Apache这些第三方服务器软件，只需要一个node.js提供的http模块就能够写一个服务器，这么一看，貌似node还多强大的。</p> <p>我们的服务器一般分为三个概念，ip、域名、端口，有了这三个你就可以访问一个服务器。</p> <p>怎么来创建啊web服务器？</p> <p>首先要导入http内置模块</p> <p>const server = http.createServer（）</p> <p>这个创建了一个服务器实例，接下来还要对他绑定一个监听事件，能够监听到客户端发送过来的请求</p> <p>server.on('request',(req, res) =&gt; {})</p> <p>注意这个事件里面有两个参数，这两个参数代表什么意思我们后面再说，当你绑定完事件过后，就可以开启这个服务器了</p> <p>server.listen（‘端口号’，callback）</p> <p>这里面两个参数一个填端口号，一个是开启服务器后的回调函数。</p> <div class="cnblogs_code"> <pre>const http = require('http'<span style="color: rgba(0, 0, 0, 1)">) const server</span>=<span style="color: rgba(0, 0, 0, 1)"> http.createServer() server.on(</span>'request', (req, res) =&gt; console.log('someone visit our webServer'<span style="color: rgba(0, 0, 0, 1)">)) server.listen(</span>83, () =&gt; console.log('开启成功'))</pre> </div> <p>浏览器上访问 服务器过后就会在服务器的终端弹出来监听里面要打印的信息</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f2c5d86ac73d34193ff0c56a57f70a42.jpg" alt="node.js - http、模块化、npm"></p> <p>&nbsp;1.1</p> <p>我们接下来说一下监听事件里面两个参数到底是个什么？</p> <p>首先第一个req对象，它是一个对象，包含了客户端相关的数据和属性，你要对访问进来的客户端记性操作的话，尽管用到这个对象里面的属性和方法即可</p> <p>req.url是客户端请求的url地址&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;req.method是客户端的请求方式</p> <div class="cnblogs_code"> <pre>const http = require('http'<span style="color: rgba(0, 0, 0, 1)">) const server</span>=<span style="color: rgba(0, 0, 0, 1)"> http.createServer() server.on(</span>'request', req =&gt;<span style="color: rgba(0, 0, 0, 1)"> {     const url</span>=<span style="color: rgba(0, 0, 0, 1)"> req.url     const method</span>=<span style="color: rgba(0, 0, 0, 1)"> req.method     console.log(`your request url is ${url} and your request method is ${method}`)</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> post请求借助postman</span><span style="color: rgba(0, 0, 0, 1)">}) server.listen(</span>'80',() =&gt; console.log('server is running in http:127.0.0.1'))</pre> </div> <p>1.2</p> <p>然后是res对象，没错，他也是一个对象，这是包含了服务器相关属性和数据的对象</p> <p>res.send（）可以向客户端发送你想发送的内容，而且它代表着请求结束，如果发送的内容里面包含中文的话，还需要用到res来设置表头编码不然会出现乱码的现象</p> <div class="cnblogs_code"> <pre>const http = require('http'<span style="color: rgba(0, 0, 0, 1)">) const server</span>=<span style="color: rgba(0, 0, 0, 1)"> http.createServer() server.on(</span>'request', (req, res) =&gt;<span style="color: rgba(0, 0, 0, 1)"> {     let str</span>= 'your request url is '+req.url+' + your request method is '+req.method+''<span style="color: rgba(0, 0, 0, 1)">     res.end(str) }) server.listen(</span>80, () =&gt;<span style="color: rgba(0, 0, 0, 1)"> console.log(</span>'server is running at http://127.0.0.1'<span style="color: rgba(0, 0, 0, 1)"> ))</span></pre> </div> <p>1.3</p> <p>来一个案例，根据不同的url反映出不同的页面，这个应该很经典吧</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 1.获取到用户的url</span> const http = require('http'<span style="color: rgba(0, 0, 0, 1)">) const server</span>=<span style="color: rgba(0, 0, 0, 1)"> http.createServer() server.on(</span>'request', (req, res) =&gt;<span style="color: rgba(0, 0, 0, 1)"> {     let url</span>=<span style="color: rgba(0, 0, 0, 1)"> req.url</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 2.设置默认的页面为404</span>     let content = `&lt;h1&gt;404 Not Found&lt;/h1&gt;`<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 3.判断用户是否请求的是首页</span><span style="color: rgba(0, 0, 255, 1)">if</span> (url == '/' || url == '/index.html'<span style="color: rgba(0, 0, 0, 1)">) {         content</span>= `&lt;h1&gt;首页&lt;/h1&gt;`<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> } 4.判断用户是否访问的是分页</span>     }<span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 255, 1)">if</span> (url == '/son.html'<span style="color: rgba(0, 0, 0, 1)">) {         content</span>= `&lt;h1&gt;子页&lt;/h1&gt;`<span style="color: rgba(0, 0, 0, 1)">    }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 5.设置请求头 防止中文乱码</span>     res.setHeader('Content-Type', 'text/html; charset=utf-8'<span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 6.发送内容并结束请求</span><span style="color: rgba(0, 0, 0, 1)">    res.end(content) }) server.listen(</span>80, () =&gt; console.log('your request is running at http://127.0.0.1'))</pre> </div> <p>2.</p> <p>我们接下来看到模块化，模块化是指解决一个复杂问题的时候，自顶向下逐层把系统划分到若干模块的过程，对于整个系统来说模块是可组合、分解和更换的单元。</p> <p>在我们编程世界里面，模块化就是遵守固定的规则，把一个大文件拆分成独立并相互依赖的小模块，大家分工合作。</p> <p>Node.js模块分类？</p> <p>在我们node里面模块分为三个部分，第一个是内置模块：我们前面学的都是内置模块，fs、path、http等</p> <p>第二个是自定义模块：什么叫做自定义模块，其实就是我们自己写的这个js文件他就是自定义模块</p> <p>第三个是第三方模块：就是由第三方开发出来的模块，需要提前下载</p> <p>然后 我们的模块都需要加载用到require</p> <p>还会有模块作用域，也就是在我们自定义模块里面声明的变量函数，在外面的模块是访问不到的。</p> <p>那么有没有办法来访问呢？</p> <p>是有的，向外共享模块成员的方法要用到一个module对象，它是每个js自定义模块都有的内置对象，然后在这里面有一个关键的对象，exports，在我们前面，require这个自定义模块的时候得到的内容其实就是exports对象里面的内容，</p> <p>所以说有时候为空，就是因为没给exports赋值，他就是一个空对象，我们在写的时候可以写成module.exports 也可以是exports</p> <div class="cnblogs_code"> <pre>module.exports =<span style="color: rgba(0, 0, 0, 1)"> {     uname :</span>'张三'<span style="color: rgba(0, 0, 0, 1)">,     sayHello :</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)">() {         console.log(</span>'hello node'<span style="color: rgba(0, 0, 0, 1)">);     } }</span></pre> </div> <div class="cnblogs_code"> <pre>const md = require('./module对象共享'<span style="color: rgba(0, 0, 0, 1)">) console.log(md);</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/554afb2c5a48fdd1855d58bdf41490a6.jpg" alt="node.js - http、模块化、npm"></p> <p>&nbsp;但是在模块化这里exports有几个要注意点的，始终要记住一点不管是exports还是module.exports他们虽然能完成一样的效果但是始终以为module.exports里面的数据为准。</p> <p>为了防止混乱，最好不要将exports和module.exports混用</p> <p>模块化规范</p> <p>node遵循的是commenJS模块化的规范，包括我们前面说的module代表当前模块，exports是对外的接口，require用于加载模块都是commenJS规范的，但是我vue入了一点门被劝回来的那里，刚好看到后面应该遵循的都是es6模块化规范了，这个commenJS逐渐要淘汰了。</p> <p>3</p> <p>继续看到包和npm的一些内容，首先要明确什么叫包，第三方模块就叫包，包是由第三方个人和团队做出来的，都是免费的。</p> <p>我们为什么要用包呢？</p> <p>包是基于内置模块封装出来的，提提供了更高级、更简便的用法，其实就相当于jQuery和浏览器内置对象的关系，jq的ajax方法就是通过xhr封装来的撒。</p> <p>npm</p> <p>我们首先看到一个案例对时间格式化如果用我们的传统做法，也就是自定义模块的做法。</p> <div class="cnblogs_code"> <pre>const module对象共享 = require("./module对象共享"<span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> timeFormat(dataStr) {     let date</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Date(dataStr)     let y</span>=<span style="color: rgba(0, 0, 0, 1)"> date.getFullYear()     let m</span>= addZero(date.getMonth() + 1<span style="color: rgba(0, 0, 0, 1)">)     let d</span>=<span style="color: rgba(0, 0, 0, 1)"> addZero(date.getDate())     let h</span>=<span style="color: rgba(0, 0, 0, 1)"> addZero(date.getDate())     let mm</span>=<span style="color: rgba(0, 0, 0, 1)"> addZero(date.getDate())     let s</span>=<span style="color: rgba(0, 0, 0, 1)"> addZero(date.getDate())</span><span style="color: rgba(0, 0, 255, 1)">return</span> `${y}-${m}-<span style="color: rgba(0, 0, 0, 1)">${d} ${h}:${mm}:${s}` }</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> addZero(n) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> n = n &lt; 10? '0' +<span style="color: rgba(0, 0, 0, 1)"> n : n } module.exports.timeFormat</span>= timeFormat</pre> </div> <div class="cnblogs_code"> <pre>const time = require('./格式化时间传统做法'<span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> console.log(time);</span> const date =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Date() console.log(date); console.log(time.timeFormat(date));</span></pre> </div> <p>这就完成了一个对于时间格式化的操作，舒适还是有点麻烦，但我们现在有了npm就不一样了，可以用npm安装一个moment的包，安装导入查看文档api这三步曲走起。</p> <div class="cnblogs_code"> <pre>const moment = require('moment'<span style="color: rgba(0, 0, 0, 1)">) const timer</span>= moment().format('YYYY-MM-DD HH:mm:ss'<span style="color: rgba(0, 0, 0, 1)">) console.log(timer);</span></pre> </div> <p>之前多少代码量，现在多少代码量，这就是为什么要用包。</p> <p>最后说一下当你安装了包后文件夹多多出两个文件一个node_modules的文件夹这里面存放的npm下载的包文件，一个是pachage_lock.json的配置文件这里面是前面文件夹里面所有npm下载的包的详细信息这两个都不能去修改</p> <p>最后如果要安装指定版本的包的话只需要在包名的后面添加@版本号</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85733.htm">济南领养动物救助站（济南小动物领养）</a></p>
+                                        <p>下一个：<a href="/news/article-86458.htm">动物疫苗的种类及作用有哪些呢图片（动物疫苗种类及类型）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-vless-node-github.htm" title="「3月27日」最高速度20.6M/S，2025年Vless每天更新免费机场节点地址链接">「3月27日」最高速度20.6M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-85733.htm" title="济南领养动物救助站（济南小动物领养）">济南领养动物救助站（济南小动物领养）</a></li>
+                        <li class="py-2"><a href="/news/article-71292.htm" title="动物疫苗行业排名榜前十名（全国动物用疫苗销量排行）">动物疫苗行业排名榜前十名（全国动物用疫苗销量排行）</a></li>
+                        <li class="py-2"><a href="/news/article-81479.htm" title="Nestjs模块机制的概念和实现原理">Nestjs模块机制的概念和实现原理</a></li>
+                        <li class="py-2"><a href="/news/article-81480.htm" title="全国十大名牌兽药厂家（中国十大名牌兽药厂家）">全国十大名牌兽药厂家（中国十大名牌兽药厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-vless-github.htm" title="「3月28日」最高速度20.5M/S，2025年Vless每天更新免费机场节点地址链接">「3月28日」最高速度20.5M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-78010.htm" title="动物疫苗接种方法及注意事项有哪些呢英语（动物疫苗接种方法及注意事项有哪些呢英语翻译）">动物疫苗接种方法及注意事项有哪些呢英语（动物疫苗接种方法及注意事项有哪些呢英语翻译）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share.htm" title="「3月13日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接">「3月13日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-vless-node.htm" title="「3月18日」最高速度19.9M/S，2025年Vless每天更新免费机场节点地址链接">「3月18日」最高速度19.9M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-vless-windows.htm" title="「3月10日」最高速度21.9M/S，2025年Vless每天更新免费机场节点地址链接">「3月10日」最高速度21.9M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/vlessgithub/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/swiper.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+<!-- END BODY -->
+
+</html>
