@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+<!-- BEGIN HEAD -->
+
+<head>
+        <link rel="canonical" href="https://vlessgithub.github.io/news/article-99749.htm" />
+    <meta charset="utf-8" />
+    <title>Gin增删改查demo</title>
+        <meta name="description" content="一个Gin框架的联手demo、包括增删改查等等。   1.使用技术  Gin Gorm Mysql …   2.项目结构目录 │  postman_collection.json  // postma" />
+        <link rel="icon" href="/assets/website/img/vlessgithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Vless Github机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vlessgithub.github.io/news/article-99749.htm" />
+    <meta property="og:site_name" content="Vless Github机场订阅官网" />
+    <meta property="og:title" content="Gin增删改查demo" />
+    <meta property="og:image" content="https://vlessgithub.github.io/uploads/20240903/0c21a37d2cfcc32c25d7266e37021ef1.webp" />
+        <meta property="og:release_date" content="2025-04-20T09:00:41" />
+    <meta property="og:updated_time" content="2025-04-20T09:00:41" />
+        <meta property="og:description" content="一个Gin框架的联手demo、包括增删改查等等。   1.使用技术  Gin Gorm Mysql …   2.项目结构目录 │  postman_collection.json  // postma" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Gin增删改查demo">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/vlessgithub/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/vlessgithub/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/vlessgithub/animate.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/vlessgithub/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/vlessgithub/layout.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2HXTZV7HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2HXTZV7HY');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- END HEAD -->
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a class="logo-wrap" href="/">
+                                                <span>Vless Github</span>
+                                                </a>
+                    </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block category">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h1 class="promo-block-title">Gin增删改查demo</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-block-img-wrap">
+                        <img class="promo-block-img img-responsive" src="/assets/website/img/vlessgithub/mockup/avatar-01.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> </h1> <blockquote> <p>一个Gin框架的联手demo、包括增删改查等等。</p> </blockquote> <h2> <a id="1_3" rel="nofollow"></a>1.使用技术</h2> <ul> <li>Gin</li> <li>Gorm</li> <li>Mysql</li> <li>…</li> </ul> <h2> <a id="2_9" rel="nofollow"></a>2.项目结构目录</h2> <pre><code>│  postman_collection.json  // postman配置文件 │  db.sql  // 数据库表结构 │  config.yaml  // 配置文件 │  go.mod      // 包依赖配置 │  main.go    // 程序入口 ├─api │  └─v1     // api 方法 │          sys_user.go │           ├─config    // 配置文件结构体 │      config.go │       ├─core      │      config.go // 配置文件读取 │      server.go // 启动HTTP server服务 │       ├─global │  │  global.go  // 全局共享对象 │  │   │  └─response │          response.go // 公共返回结构体 │           ├─initialize │      db_table.go  // 注册数据库表 │      mysql.go  // 初始化mysql连接池 │      router.go // 初始化总路由 │       ├─middleware │      cors.go  // 跨域处理配置 │       ├─model │  │  sys_user.go  // 数据库映射结构体 │  │   │  ├─request │  │      common.go  // 公共请求参数 │  │      sys_user.go  //  用户请求参数 │  │       │  └─response │          common.go   // 公共相应参数 │          sys_user.go  //  用户相应参数 ├─router │      sys_user.go  // 用户业务路由 │       ├─service │      sys_user.go   // 用户业务处理层 │       └─utils         md5.go   // 工具类 </code></pre> <h2> <a id="3_60" rel="nofollow"></a>3.运行截图</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/94148806e4bc9604cc0c0aa7e833ef52.jpg" alt="Gin增删改查demo"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/74dc8c4d880043c7af3c505c928f31ed.jpg" alt="Gin增删改查demo"></p> <h2> <a id="4_63" rel="nofollow"></a>4.开源地址</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/litong-zero/gin-user"  rel="nofollow">Gitee</a></p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98960.htm">动物医院申请条件有哪些内容呢英语怎么说（符合动物医院法定条件）</a></p>
+                                        <p>下一个：<a href="/news/article-99750.htm">卖宠物粮食的店名（宠物粮食店铺）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-node-subscribe-links.htm" title="「3月4日」最高速度18.5M/S，2025年Vless每天更新免费机场节点地址链接">「3月4日」最高速度18.5M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-69332.htm" title="宠物医院收费价目表2023年11月（宠物医院服务项目价格表）">宠物医院收费价目表2023年11月（宠物医院服务项目价格表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-vless-windows.htm" title="「3月2日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接">「3月2日」最高速度18.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-vless-node-github.htm" title="「3月27日」最高速度20.6M/S，2025年Vless每天更新免费机场节点地址链接">「3月27日」最高速度20.6M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-free-vless-node.htm" title="「4月4日」最高速度21.2M/S，2025年Vless每天更新免费机场节点地址链接">「4月4日」最高速度21.2M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-node-share.htm" title="「3月20日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接">「3月20日」最高速度21.5M/S，2025年Vless每天更新免费机场节点地址链接</a></li>
+                        <li class="py-2"><a href="/news/article-85012.htm" title="Shell常用脚本：Nginx安装脚本">Shell常用脚本：Nginx安装脚本</a></li>
+                        <li class="py-2"><a href="/news/article-75970.htm" title="猫瘟疫苗价格（猫瘟疫苗价格多少）">猫瘟疫苗价格（猫瘟疫苗价格多少）</a></li>
+                        <li class="py-2"><a href="/news/article-65539.htm" title="c语言查看文件详细信息">c语言查看文件详细信息</a></li>
+                        <li class="py-2"><a href="/news/article-98289.htm" title="动物疫苗赚钱吗知乎（做动物疫苗前景）">动物疫苗赚钱吗知乎（做动物疫苗前景）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">56</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/vlessgithub/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/swiper.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/vlessgithub/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+<!-- END BODY -->
+
+</html>
