@@ -213,9 +213,39 @@ tcping your_v2ray_server_ip port</pre></div></li><li><p><strong>路由追踪</st
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 策略组如何提升在线视频体验？</h5></div>
     <div class="panel-body">
-        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。<hr />    </div>
+        Surfboard 可通过策略组将视频流量分配到低延迟、高带宽节点，自动切换到最佳节点，减少缓冲和卡顿，提高在线视频播放的流畅性和整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan-Go 的端口不可达怎么办？</h5></div>
+    <div class="panel-body">
+        检查服务器防火墙是否开放对应端口，同时确认客户端和服务器端端口一致。还可以尝试更换节点或端口，确保 TLS 证书有效以保证连接成功。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 还能在现代网络环境下正常使用吗？</h5></div>
+    <div class="panel-body">
+        虽然 SSR 的项目已经停止维护，但部分服务器依然提供 SSR 节点。只要服务器配置得当，SSR 在一些地区仍然可以稳定使用。不过，它的安全性和兼容性不如 V2Ray 或 Trojan 等现代协议。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的内核能否替换？</h5></div>
+    <div class="panel-body">
+        可以。WinXray 的内核文件独立存在于程序目录中，用户可替换为最新的 v2ray-core 或 xray-core 文件以获取更好的性能与协议支持，但需保持版本兼容。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 的伪装域名如何正确配置？</h5></div>
+    <div class="panel-body">
+        伪装域名必须真实可访问且证书有效，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 是否兼容 Clash 或 V2Ray 配置文件？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 支持部分 Clash 与 Xray 订阅格式，但建议使用其官方订阅格式以获得完整兼容。若订阅转换异常，可使用 Hiddify 提供的在线转换工具重新生成配置文件导入。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash Premium 与普通版本有什么区别？</h5></div>
+    <div class="panel-body">
+        Clash Premium 是增强版，支持更多功能如 TUN 模式、本地 DNS 解析、脚本规则和自定义代理链。它能实现更细致的流量控制和兼容更多协议，适合对网络有高级需求的用户使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 的规则文件如何支持广告屏蔽？</h5></div>
@@ -228,39 +258,9 @@ tcping your_v2ray_server_ip port</pre></div></li><li><p><strong>路由追踪</st
         SSR 混淆可将流量伪装成正常 HTTPS 或 HTTP 数据，降低被 DPI 检测风险。合理选择协议和混淆参数组合，可以提高节点稳定性和长期可用性，保证科学上网体验顺畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 策略组如何提升在线视频体验？</h5></div>
+    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
     <div class="panel-body">
-        Surfboard 可通过策略组将视频流量分配到低延迟、高带宽节点，自动切换到最佳节点，减少缓冲和卡顿，提高在线视频播放的流畅性和整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 是否兼容 Clash 或 V2Ray 配置文件？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 支持部分 Clash 与 Xray 订阅格式，但建议使用其官方订阅格式以获得完整兼容。若订阅转换异常，可使用 Hiddify 提供的在线转换工具重新生成配置文件导入。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的内核能否替换？</h5></div>
-    <div class="panel-body">
-        可以。WinXray 的内核文件独立存在于程序目录中，用户可替换为最新的 v2ray-core 或 xray-core 文件以获取更好的性能与协议支持，但需保持版本兼容。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash Premium 与普通版本有什么区别？</h5></div>
-    <div class="panel-body">
-        Clash Premium 是增强版，支持更多功能如 TUN 模式、本地 DNS 解析、脚本规则和自定义代理链。它能实现更细致的流量控制和兼容更多协议，适合对网络有高级需求的用户使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的伪装域名如何正确配置？</h5></div>
-    <div class="panel-body">
-        伪装域名必须真实可访问且证书有效，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 还能在现代网络环境下正常使用吗？</h5></div>
-    <div class="panel-body">
-        虽然 SSR 的项目已经停止维护，但部分服务器依然提供 SSR 节点。只要服务器配置得当，SSR 在一些地区仍然可以稳定使用。不过，它的安全性和兼容性不如 V2Ray 或 Trojan 等现代协议。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan-Go 的端口不可达怎么办？</h5></div>
-    <div class="panel-body">
-        检查服务器防火墙是否开放对应端口，同时确认客户端和服务器端端口一致。还可以尝试更换节点或端口，确保 TLS 证书有效以保证连接成功。    </div>
+        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -289,16 +289,16 @@ tcping your_v2ray_server_ip port</pre></div></li><li><p><strong>路由追踪</st
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-19-clash-v2ray-ss-ssr.htm" title="Vless Github - 3月19日18.2M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 3月19日18.2M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-20-clash-node-github.htm" title="Vless Github - 4月20日19.5M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月20日19.5M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-17-clash-node-github.htm" title="Vless Github - 4月17日18.8M/S|免费Singbox节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月17日18.8M/S|免费Singbox节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-11-clash-verge-rev-node-share.htm" title="Vless Github - 4月11日22.9M/S|免费SSR节点/Clash节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月11日22.9M/S|免费SSR节点/Clash节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-21-clash-verge-rev-github.htm" title="Vless Github - 3月21日21.5M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 3月21日21.5M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-13-node-share.htm" title="Vless Github - 4月13日20.3M/S|免费Clash节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月13日20.3M/S|免费Clash节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-11-free-node-subscribe.htm" title="Vless Github - 3月11日23M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Vless Github - 3月11日23M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-10-clash-verge-rev-node-github.htm" title="Vless Github - 4月10日21.5M/S|免费SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月10日21.5M/S|免费SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-19-clash-stash.htm" title="Vless Github - 4月19日19.2M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月19日19.2M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-29-clash-verge-rev-windows.htm" title="Vless Github - 3月29日22.6M/S|免费V2ray节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 3月29日22.6M/S|免费V2ray节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-24-clash-node-daily-updates.htm" title="Vless Github - 4月24日20.4M/S|免费Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月24日20.4M/S|免费Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-29-clash-stash.htm" title="Vless Github - 4月29日21.5M/S|免费Clash节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月29日21.5M/S|免费Clash节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-30-node-share.htm" title="Vless Github - 4月30日22.2M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月30日22.2M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-15-clash-verge-rev-windows.htm" title="Vless Github - 4月15日21.3M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月15日21.3M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-3-clash-verge-rev-windows.htm" title="Vless Github - 5月3日21.9M/S|免费Clash节点/Trojan节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月3日21.9M/S|免费Clash节点/Trojan节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-28-clash-verge-rev-node.htm" title="Vless Github - 4月28日22.6M/S|免费V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月28日22.6M/S|免费V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-27-clash-verge-rev-node-share.htm" title="Vless Github - 4月27日20.8M/S|免费Trojan节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月27日20.8M/S|免费Trojan节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-5-clash-node-daily-updates.htm" title="Vless Github - 5月5日23M/S|免费Clash节点/SSR节点/V2ray节点/Trojan节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月5日23M/S|免费Clash节点/SSR节点/V2ray节点/Trojan节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-25-clash-verge-rev-node-github.htm" title="Vless Github - 4月25日21.3M/S|免费Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月25日21.3M/S|免费Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-1-free-node-subscribe.htm" title="Vless Github - 5月1日22.7M/S|免费Trojan节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月1日22.7M/S|免费Trojan节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -310,10 +310,10 @@ tcping your_v2ray_server_ip port</pre></div></li><li><p><strong>路由追踪</st
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
