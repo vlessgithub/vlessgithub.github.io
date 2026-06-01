@@ -318,24 +318,9 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的透明代理适合哪些应用场景？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 能否同步 iCloud 配置？</h5></div>
     <div class="panel-body">
-        透明代理通过 TUN 或 WinDivert 拦截系统 IP 层流量，无需配置每个应用。适合全局科学上网、在线游戏或对局域网设备统一代理的场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 的订阅更新机制如何运作？</h5></div>
-    <div class="panel-body">
-        Nekoray 可以通过远程订阅 URL 自动下载最新节点和规则文件。用户可以设置更新频率，程序会定时检测并替换旧节点，保持配置最新状态。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何为 Trojan 配置 ALPN 与 SNI 提升伪装效果？</h5></div>
-    <div class="panel-body">
-        在服务器与客户端配置中设置合适的 SNI（伪装域名）并启用 ALPN（例如 http/1.1），确保 TLS 握手时使用常见的应用层协议标识，从而增加流量与普通 HTTPS 的相似度，降低被检测概率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的脚本功能能实现哪些高级操作？</h5></div>
-    <div class="panel-body">
-        QuantumultX 支持 JavaScript 脚本，可用于请求重写、数据修改、自动签到、广告拦截等功能。用户可通过脚本中心导入开源脚本，极大增强应用的灵活性与自动化能力。<hr />    </div>
+        可以。Surfboard 支持 iCloud 同步功能，用户可在不同苹果设备上共享同一配置文件。这样即使更换手机或重装系统，也能自动恢复节点与分流设置。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
@@ -343,29 +328,44 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
         PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆插件如何增强隐蔽性？</h5></div>
-    <div class="panel-body">
-        混淆插件可模拟正常协议特征，如 HTTP 或 TLS 流量，使 SSR 流量难以被检测。合理选择混淆方式和协议，可提升在高封锁环境下的长期稳定性和安全性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 能否同步 iCloud 配置？</h5></div>
-    <div class="panel-body">
-        可以。Surfboard 支持 iCloud 同步功能，用户可在不同苹果设备上共享同一配置文件。这样即使更换手机或重装系统，也能自动恢复节点与分流设置。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的 Rule-Set 与 Clash Premium 是否兼容？</h5></div>
-    <div class="panel-body">
-        Mihomo 完全兼容 Clash Premium 的 Rule-Set 格式，支持相同的远程规则订阅与策略分组。用户可直接迁移原 Clash 配置，无需额外修改或转换。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的证书配置错误会导致什么问题？</h5></div>
     <div class="panel-body">
         如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 的脚本功能能实现哪些高级操作？</h5></div>
+    <div class="panel-body">
+        QuantumultX 支持 JavaScript 脚本，可用于请求重写、数据修改、自动签到、广告拦截等功能。用户可通过脚本中心导入开源脚本，极大增强应用的灵活性与自动化能力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 的订阅更新机制如何运作？</h5></div>
+    <div class="panel-body">
+        Nekoray 可以通过远程订阅 URL 自动下载最新节点和规则文件。用户可以设置更新频率，程序会定时检测并替换旧节点，保持配置最新状态。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 支持节点手动导入和修改吗？</h5></div>
     <div class="panel-body">
-        支持。用户可以手动输入节点信息或通过扫描二维码导入节点，并进行修改或删除。虽然不支持自动订阅更新，但足以满足轻量级用户对节点管理和分流的需求。    </div>
+        支持。用户可以手动输入节点信息或通过扫描二维码导入节点，并进行修改或删除。虽然不支持自动订阅更新，但足以满足轻量级用户对节点管理和分流的需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的透明代理适合哪些应用场景？</h5></div>
+    <div class="panel-body">
+        透明代理通过 TUN 或 WinDivert 拦截系统 IP 层流量，无需配置每个应用。适合全局科学上网、在线游戏或对局域网设备统一代理的场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆插件如何增强隐蔽性？</h5></div>
+    <div class="panel-body">
+        混淆插件可模拟正常协议特征，如 HTTP 或 TLS 流量，使 SSR 流量难以被检测。合理选择混淆方式和协议，可提升在高封锁环境下的长期稳定性和安全性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何为 Trojan 配置 ALPN 与 SNI 提升伪装效果？</h5></div>
+    <div class="panel-body">
+        在服务器与客户端配置中设置合适的 SNI（伪装域名）并启用 ALPN（例如 http/1.1），确保 TLS 握手时使用常见的应用层协议标识，从而增加流量与普通 HTTPS 的相似度，降低被检测概率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 的 Rule-Set 与 Clash Premium 是否兼容？</h5></div>
+    <div class="panel-body">
+        Mihomo 完全兼容 Clash Premium 的 Rule-Set 格式，支持相同的远程规则订阅与策略分组。用户可直接迁移原 Clash 配置，无需额外修改或转换。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -388,22 +388,43 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
 </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default box right-ad-box">
+    <div class="panel-heading">
+        <h3 class="panel-title">特别推荐</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">
+                    <img src="/assets/website/img/G/luniuyun.webp" class="avatar" alt="绿牛云">
+                </a>
+                <dl>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></dt>
+                    <dd>
+                        <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p>                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">热门文章</h3>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-4-12-node-share.htm" title="Vless Github - 4月12日18.1M/S|免费Clash节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月12日18.1M/S|免费Clash节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-21-free-node-subscribe.htm" title="Vless Github - 4月21日18.1M/S|免费Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月21日18.1M/S|免费Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-25-clash-node-daily-updates.htm" title="Vless Github - 5月25日20.1M/S|免费Clash节点/SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月25日20.1M/S|免费Clash节点/SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-30-node-share.htm" title="Vless Github - 4月30日22.2M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月30日22.2M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-4-clash-v2ray-ss-ssr.htm" title="Vless Github - 5月4日19M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月4日19M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-20-clash-node-github.htm" title="Vless Github - 4月20日19.5M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月20日19.5M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-15-clash-verge-rev-windows.htm" title="Vless Github - 4月15日21.3M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月15日21.3M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-13-clash-node-daily-updates.htm" title="Vless Github - 5月13日20.6M/S|免费Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月13日20.6M/S|免费Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-23-clash-verge-rev-nodes.htm" title="Vless Github - 5月23日18.5M/S|免费V2ray节点/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月23日18.5M/S|免费V2ray节点/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-19-clash-node-daily-updates.htm" title="Vless Github - 5月19日23M/S|免费Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月19日23M/S|免费Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-25-clash-verge-rev-node-github.htm" title="Vless Github - 4月25日21.3M/S|免费Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月25日21.3M/S|免费Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-11-clash-node-github.htm" title="Vless Github - 5月11日19.1M/S|免费Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月11日19.1M/S|免费Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-1-free-node-subscribe.htm" title="Vless Github - 5月1日22.7M/S|免费Trojan节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月1日22.7M/S|免费Trojan节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-23-clash-verge-rev-node.htm" title="Vless Github - 4月23日20.7M/S|免费Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月23日20.7M/S|免费Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-30-clash-meta-github.htm" title="Vless Github - 5月30日21.6M/S|免费Shadowrocket节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月30日21.6M/S|免费Shadowrocket节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-20-clash-node.htm" title="Vless Github - 5月20日20.2M/S|免费V2ray节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月20日20.2M/S|免费V2ray节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-20-clash-node-github.htm" title="Vless Github - 4月20日19.5M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月20日19.5M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-17-clash-meta-github.htm" title="Vless Github - 5月17日21.2M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月17日21.2M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-4-clash-v2ray-ss-ssr.htm" title="Vless Github - 5月4日19M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Vless Github - 5月4日19M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-26-free-node-subscribe.htm" title="Vless Github - 4月26日20.4M/S|免费Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Vless Github - 4月26日20.4M/S|免费Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -415,7 +436,10 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
@@ -448,6 +472,9 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></b> <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p></div>
                                         <p class="margin-b-0">Vless Github机场订阅官网 版权所有 Powered by WordPress</p>
                 </div>
             </div>
